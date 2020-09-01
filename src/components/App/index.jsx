@@ -1,7 +1,8 @@
 import React from "react";
+import MainTable from "../MainTable/MainTable";
 
 export const App = () => {
-  return <div>Start project</div>;
+  return <MainTable></MainTable>;
 };
 
 export default App;
