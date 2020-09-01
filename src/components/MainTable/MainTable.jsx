@@ -1,7 +1,5 @@
-import React from 'react'
+import React from "react";
 
-const MainTable = () => (
-  
-);
+const MainTable = () => <div></div>;
 
 export default MainTable;
