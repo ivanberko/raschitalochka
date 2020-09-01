@@ -1,7 +1,0 @@
-@value colors: "../../styles/variables.css";
-@value main from colors;
-
-.div {
-  background-color: main;
-  padding: 40px;
-}
