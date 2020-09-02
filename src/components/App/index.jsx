@@ -1,8 +1,10 @@
 import React from "react";
-import MainTable from "../MainTable/MainTable";
+
+// Components
+import Home from "../../Pages/Home/Home";
 
 export const App = () => {
-  return <MainTable></MainTable>;
+  return <Home />;
 };
 
 export default App;

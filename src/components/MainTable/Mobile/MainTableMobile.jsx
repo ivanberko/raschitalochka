@@ -1,7 +1,7 @@
 import React from "react";
-import { list, list__item, list__itemRow } from "./MainTable.module.css";
+import { list, list__item, list__itemRow, boxButtons } from "./MainTableMobile.module.css";
 
-const MainTable = ({ children }) => {
+const MainTableMobile = ({ children }) => {
   return (
     <section>
       <ul className={list}>
@@ -19,7 +19,7 @@ const MainTable = ({ children }) => {
             <p>Irregular Income</p>
           </div>
           <div className={list__itemRow}>
-            <p>Comments</p>
+            <p>Category</p>
             <p>Cash</p>
           </div>
           <div className={list__itemRow}>
@@ -84,9 +84,9 @@ const MainTable = ({ children }) => {
           </div>
         </li>
       </ul>
-      {children}
+      <div className={boxButtons}>{children}</div>
     </section>
   );
 };
 
-export default MainTable;
+export default MainTableMobile;
