@@ -5,14 +5,16 @@ import { useMediaQuery } from "react-responsive";
 import MainTableMobile from "../../components/MainTable/Mobile/MainTableMobile";
 import MainTableDesckop from "../../components/MainTable/TabletOrDesktop/MainTableDesckop";
 import Button from "../../components/Button/Button";
+import Chart from "../../components/Chart/Chart";
 
 const Home = () => {
   const isMobileDevice = useMediaQuery({
-    query: "(max-device-width: 767px)",
+    query: "(max-width: 767px)",
   });
   return (
     <>
-      {isMobileDevice ? (
+      <Chart />
+      {/* {isMobileDevice ? (
         <MainTableMobile>
           <Button label={"Add Income"} />
           <Button label={"Add Cost"} />
@@ -22,7 +24,7 @@ const Home = () => {
           <Button label={"Add Income"} />
           <Button label={"Add Cost"} />
         </MainTableDesckop>
-      )}
+      )} */}
     </>
   );
 };
