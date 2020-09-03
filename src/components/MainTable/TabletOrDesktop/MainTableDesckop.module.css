@@ -1,0 +1,74 @@
+@value colors "../../../styles/variables.css";
+@value color-main, color-white, table-row-bg-dark, font-family-primary from colors;
+
+.wrap {
+  margin: 0 32px;
+  box-shadow: 10px 17px 40px rgba(1, 1, 0, 0.15);
+  background-color: color-white;
+  border-radius: 0 0 3px 3px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: font-family-primary;
+  text-align: left;
+  font-size: 13px;
+}
+
+th,
+td {
+  padding-left: 15px;
+}
+
+.tableHead tr {
+  height: 72px;
+  background-color: table-row-bg-dark;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.tableRow {
+  height: 72px;
+}
+
+.tableRow:nth-child(even) {
+  background-color: table-row-bg-dark;
+}
+
+.boxButtons {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  padding: 14px 0;
+  box-shadow: 0 -10px 30px rgba(119, 119, 119, 0.1);
+  background-color: color-white;
+}
+
+@media screen and (min-width: 767px) {
+  .boxButtons {
+    position: static;
+    background-color: color-main;
+    justify-content: center;
+    padding: 26px 0;
+    border-radius: 3px 3px 0 0;
+  }
+
+  .boxButtons button:first-child {
+    margin-right: 30px;
+  }
+}
+
+@media screen and (min-width: 1260px) {
+  .wrap {
+    width: 1260px;
+  }
+
+  th,
+  td {
+    padding-left: 40px;
+  }
+}
