@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
 import { App } from "./components/App";
 
+import "./styles/main.module.css"; // global styles
 import "./styles/fonts.css"; // local fonts
 
 ReactDOM.render(
