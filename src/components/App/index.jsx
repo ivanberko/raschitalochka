@@ -1,7 +1,10 @@
 import React from "react";
 
+// Components
+import Home from "../../Pages/Home/Home";
+
 export const App = () => {
-  return <div>Start project</div>;
+  return <Home />;
 };
 
 export default App;
