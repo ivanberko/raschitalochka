@@ -1,15 +1,12 @@
 import React from "react";
-import FormCostIncome from "../FormCostIncome";
 
 // Components
-import Home from "../../Pages/Home/Home";
+import Home from "../../pages/Home/Home";
 
 export const App = () => {
-
   return (
     <div>
-    <Home />
-      <FormCostIncome actionType="COST" />
+      <Home />
     </div>
   );
 };
