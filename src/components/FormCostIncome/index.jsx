@@ -1,6 +1,20 @@
 import React, { useState } from "react";
-import { Formik, Field, Form } from "formik";
-import TextField from "@material-ui/core/TextField";
+import {
+  button,
+  textarea,
+  formContainer,
+  categoriesList,
+  categoriesItem,
+  dateInput,
+  inputContainer,
+  commentsHeader,
+  categoriesHeader,
+  amountInputCost,
+  amountInputIncome,
+  blockHeader,
+  radioCost,
+  radioIncome,
+} from "./FormCostIncome.module.css";
 
 const categoriesCost = [
   "Main Expenses",
@@ -16,134 +30,95 @@ const categoriesCost = [
 
 const categoriesIncom = ["Regular Income", "Irregular Income"];
 
-const FormCostIncome = ({ actionType }) => {
+const FormCostIncome = ({ actionType, changeIsModalOpen = null }) => {
   const categories =
     actionType === "COST" ? [...categoriesCost] : [...categoriesIncom];
+
+  const amountStyle =
+    actionType === "COST" ? amountInputCost : amountInputIncome;
+    
+  const radioStyle = actionType === "COST" ? radioCost : radioIncome;
+
+  const [amount, setAmount] = useState(0);
+  const [date, setDate] = useState("");
+  const [category, setCategory] = useState("");
+  const [comments, setComments] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(
+      `amount: ${amount}; date: ${date}; category: ${category}; comments: ${comments};`
+    );
+    if(changeIsModalOpen) changeIsModalOpen();
+  };
+
+  const handleChange = ({ target: { value, name } }) => {
+    switch (name) {
+      case "amount":
+        setAmount(value);
+        break;
+      case "date":
+        setDate(value);
+        break;
+      case "categories":
+        setCategory(value);
+        break;
+      case "comments":
+        setComments(value);
+        break;
+      default:
+        break;
+    }
+  };
   return (
-    <div
-      style={{
-        width: "300px",
-        margin: "0 auto",
-        border: "2px solid black",
-        display: "flex",
-        justifyContent: "center",
-      }}
-    >
-      {/* style*/}
-      <Formik
-        initialValues={{
-          amount: 0,
-          date: undefined,
-          categories: "",
-          comments: "",
-        }}
-        onSubmit={(values) => {
-          console.log("files submited", values);
-        }}
-      >
-        {({ values }) => (
-          <Form>
-            <Field
-              style={{ width: "126px", height: "31px", padding: 0 }}
-              /* style*/
-              id="amount"
-              name="amount"
-              placeholder="Amount.00"
-              type="number"
-              min="0"
-              value={values.amount}
-            />
-            <Field name="date">
-              {() => (
-                <TextField
-                  style={{ width: "126px", height: "31px", padding: 0 }}
-                  /* style*/
-                  type="date"
-                  format="DD/MM/YYYY"
-                  value={values.date}
-                  InputLabelProps={{
-                    shrink: true,
-                  }}
-                />
-              )}
-            </Field>
-            <div role="group">
-              Categories
-              {categories.map((category) => (
-                <label key={category} style={{ display: "block" }}>
-                  {/* style*/}
-                  <Field name="categories" type="radio" value={category} />
-                  {category}
-                </label>
-              ))}
-            </div>
-            <Field name="comments" value={values.comments}>
-              {() => (
-                <textarea
-                  style={{
-                    display: "block",
-                    resize: "none",
-                    width: "277px",
-                    height: "50px",
-                  }}
-                  /* style*/
-                  type="textarea"
-                  placeholder="Lorem ipsum tararam pararam!"
-                />
-              )}
-            </Field>
-            <button type="submit" style={{ width: "281px", height: "39px" }}>
-              Add
-            </button>
-          </Form>
-        )}
-      </Formik>
-    </div>
+    <form className={formContainer} onSubmit={handleSubmit}>
+      <div className={inputContainer}>
+        <input
+          className={amountStyle}
+          name="amount"
+          onChange={handleChange}
+          placeholder="Amount.00"
+          type="number"
+          min="0"
+        />
+        <input
+          className={dateInput}
+          name="date"
+          type="date"
+          onChange={handleChange}
+          placeholder="DD/MM/"
+        />
+      </div>
+      <span className={`${categoriesHeader} ${blockHeader}`}>Categories</span>
+      <ul className={categoriesList} role="group">
+        {categories.map((category) => (
+          <li key={category} className={categoriesItem}>
+            <label>
+              <input
+                className={radioStyle}
+                onChange={handleChange}
+                name="categories"
+                type="radio"
+                value={category}
+              />
+              <span style={{ padding: "0 0 0 16px" }}>{category}</span>
+            </label>
+          </li>
+        ))}
+      </ul>
+      <span className={`${commentsHeader} ${blockHeader}`}>Comments</span>
+      <textarea
+        className={textarea}
+        onChange={handleChange}
+        name="comments"
+        type="textarea"
+        placeholder="Lorem ipsum tararam pararam!"
+      />
+      <button type="submit" className={button}>
+        Add
+      </button>
+    </form>
   );
 };
 
-/*textarea {
-      width: 90%;  Ширина поля в процентах 
-    height: 200px;  Высота поля в пикселах 
-    resize: none;  Запрещаем изменять размер 
-   } */
-
 export default FormCostIncome;
-
-// .modal-size {
-//   position: absolute;
-//   left: 710px;
-//   top: 183px;
-//   width: 500px;
-// }
-
-// .mobile-modal(page) {
-//   width: 320px;
-// }
-
-// .desc-tabl-mobile-size-input {
-//   border-width: 2px;
-//   border-color: rgb(185, 201, 212);
-//   border-style: solid;
-//   border-radius: 4px;
-//   background-color: rgb(255, 255, 255);
-//   width: 126px;
-//   height: 31px;
-// }
-
-// .comments-box {
-//   border-width: 2px;
-//   border-color: rgb(185, 201, 212);
-//   border-style: solid;
-//   border-radius: 4px;
-//   width: 277px;
-//   height: 50px;
-// }
-
-// .add-button {
-//   border-radius: 4px;
-//   background-image: linear-gradient( 0deg, rgb(117,193,110) 0%, rgba(81,109,87,0.70196) 100%);
-//   box-shadow: 0px 3px 3px 0px rgba(84, 123, 87, 0.25);
-//   width: 281px;
-//   height: 39px;
-// }
