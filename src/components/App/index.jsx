@@ -1,7 +1,7 @@
 import React from "react";
 
 // Components
-import Home from "../../pages/Home/Home";
+import Home from "../../Pages/Home/Home";
 
 export const App = () => {
   return (

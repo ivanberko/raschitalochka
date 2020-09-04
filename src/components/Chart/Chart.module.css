@@ -1,1 +1,65 @@
+@value colors "../../styles/variables.css";
+@value color-main, color-text-income, color-text-main-light, btn-main, btn-active, font-family-primary from colors;
 
+.wrapSVG {
+  margin: 0 auto;
+  width: 290px;
+  height: 290px;
+  margin-bottom: 10px;
+}
+
+.title {
+  text-align: center;
+  line-height: 89px;
+  background-color: color-main;
+  color: color-text-main-light;
+  font-family: font-family-primary;
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  border-radius: 3px 3px 0 0;
+}
+
+.button {
+  display: block;
+  margin: 0 auto;
+  width: 280px;
+  padding: 12px 0;
+  color: color-text-main-light;
+  font-size: 15px;
+  font-weight: 700;
+  background-color: btn-main;
+  box-shadow: 2px 3px 3px rgba(92, 135, 94, 0.2);
+  border: none;
+  border-radius: 4px;
+  transition: 0.3s linear;
+  cursor: pointer;
+  margin-bottom: 40px;
+}
+
+.button:hover,
+.button:focus {
+  background-color: color-text-income;
+  background-image: btn-active;
+}
+
+@media screen and (min-width: 768px) {
+  .wrap {
+    width: 702px;
+    box-shadow: 10px 17px 40px rgba(1, 1, 0, 0.15);
+    border-radius: 4px;
+    background-color: #ffffff;
+    margin: 0 auto;
+    padding-bottom: 38px;
+    margin-bottom: 35px;
+  }
+
+  .button {
+    margin-bottom: 0;
+  }
+
+  .wrapSVG {
+    width: 412px;
+    height: 412px;
+  }
+}
