@@ -4,31 +4,32 @@ import { useMediaQuery } from "react-responsive";
 // Components
 import MainTableMobile from "../../components/MainTable/Mobile/MainTableMobile";
 import MainTableDesckop from "../../components/MainTable/TabletOrDesktop/MainTableDesckop";
+import ModalWindow from "../../components/ModalWindow";
+import Chart from "../../components/Chart/Chart";
 
 import { button } from "./Button.module.css";
 
-import ModalWindow from "../../components/ModalWindow";
-
 const Home = () => {
   const isMobileDevice = useMediaQuery({
-    query: "(max-device-width: 767px)",
+    query: "(max-width: 767px)",
   });
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [actionType, setActionType] = useState("COST");
   const changeIsModalOpen = (e) => {
     if (!isModalOpen) {
-    setActionType(e.target.name);      
+      setActionType(e.target.name);
     }
     setIsModalOpen(!isModalOpen);
   };
 
   return (
     <>
+      <Chart />
       {isMobileDevice ? (
         <MainTableMobile>
-        {/* <NavLink path="/income" /> <CostIncome actionType="INCOME" />  к примеру*/}
-        {/* <NavLink path="/cost" /> <CostIncome actionType="COST" /> */}
+          {/* <NavLink path="/income" /> <CostIncome actionType="INCOME" />
+          <NavLink path="/cost" /> <CostIncome actionType="COST" /> */}
         </MainTableMobile>
       ) : (
         <MainTableDesckop>
@@ -46,7 +47,6 @@ const Home = () => {
           actionType={actionType}
         />
       )}
-      
     </>
   );
 };
