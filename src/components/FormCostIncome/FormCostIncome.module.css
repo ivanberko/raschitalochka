@@ -1,6 +1,14 @@
 @value colors "../../styles/variables.css";
 @value color-text-income,color-text-main-light,btn-main,btn-active from colors;
 
+
+span {
+    font-size: 13px;
+    font-weight: bold;
+    font-family: "HelveticaNeueCyr";
+    color: rgb(40, 40, 40);
+}
+
 .button {
     margin: 25px auto 0;
     display: block;
@@ -26,7 +34,7 @@
 }
 
 .textarea {
-    padding: 0;
+    padding: 10px 30px 0 12px;
     margin: 15px auto 0;
     display: block;
     resize: none;
@@ -36,6 +44,10 @@
     border-radius: 4px;
     width: 277px;
     height: 50px;
+    font-size: 13px;
+    font-weight: bold;
+    font-family: "HelveticaNeueCyr";
+    color: rgb(40, 40, 40);
 }
 
 .formContainer {
@@ -52,7 +64,6 @@
 
 .inputContainer input {
     box-sizing: border-box;
-
     border-width: 2px;
     border-color: rgb(185, 201, 212);
     border-style: solid;
@@ -61,6 +72,10 @@
     width: 126px;
     height: 31px;
     text-align: center;
+
+    font-size: 13px;
+    font-family: "HelveticaNeueCyr";
+    font-weight: bold;
 }
 
 .categoriesList {
@@ -77,19 +92,81 @@
     margin: 14px 0 0;
 }
 
-.amountInput::placeholder {
-    color: red;
+.amountInputCost::placeholder {
+    color: rgb(255, 108, 0);
+}
+
+.amountInputIncome::placeholder {
+    color: rgb(97, 147, 97);
 }
 
 .dateInput {
     font-size: 12px;
+    padding: 0 0 0 30px;
+}
+
+.blockHeader {
+    font-size: 15px;
+    font-family: "HelveticaNeueCyr";
+    color: rgb(40, 40, 40);
+    font-weight: bold;
 }
 
 .commentsHeader {
     margin: 20px 0 0;
     display: block;
 }
-  .categoriesHeader{
+
+.categoriesHeader {
     display: block;
     margin: 15px 0 0;
-  }
+}
+
+
+
+input[type='radio'] {
+    position: relative;
+    height: 11px;
+    width: 11px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: none;
+}
+
+input[type='radio']::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    background-color: transparent;
+    border: 2px solid rgb(185, 201, 212);
+    z-index: -1;
+}
+
+input[type='radio']:checked::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    visibility: visible;
+    z-index: -1;
+
+}
+
+.radioCost:checked::after {
+    background-color: rgb(255, 108, 0);
+}
+
+
+.radioIncome:checked::after {
+    background-color: rgb(97, 147, 97);
+}

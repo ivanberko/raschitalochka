@@ -1,0 +1,25 @@
+@value colors "../../styles/variables.css";
+@value color-text-main-light from colors;
+
+.incomCostBlock {
+    display: flex;
+    background-color: rgb(81, 109, 87);
+    box-shadow: 1.5px 2.598px 3px 0px rgba(92, 135, 94, 0.2);
+    height: 40px;
+    font-size: 12px;
+    font-family: "HelveticaNeueCyr";
+    color: color-text-main-light;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 8px;
+}
+
+.incomCostHeader {
+    padding: 4px 0 0 16px;
+}
+
+
+.svgArrow {
+    transform: rotate(180deg);
+    fill: #ffffff;
+}

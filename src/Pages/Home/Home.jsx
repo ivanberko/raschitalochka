@@ -4,7 +4,6 @@ import { useMediaQuery } from "react-responsive";
 // Components
 import MainTableMobile from "../../components/MainTable/Mobile/MainTableMobile";
 import MainTableDesckop from "../../components/MainTable/TabletOrDesktop/MainTableDesckop";
-import Button from "../../components/Button/Button";
 
 import { button } from "./Button.module.css";
 
@@ -28,8 +27,8 @@ const Home = () => {
     <>
       {isMobileDevice ? (
         <MainTableMobile>
-          <Button label={"Add Income"} />
-          <Button label={"Add Cost"} />
+        {/* <NavLink path="/income" /> <CostIncome actionType="INCOME" />  к примеру*/}
+        {/* <NavLink path="/cost" /> <CostIncome actionType="COST" /> */}
         </MainTableMobile>
       ) : (
         <MainTableDesckop>
@@ -47,6 +46,7 @@ const Home = () => {
           actionType={actionType}
         />
       )}
+      
     </>
   );
 };

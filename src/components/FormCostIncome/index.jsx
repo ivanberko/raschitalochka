@@ -5,11 +5,15 @@ import {
   formContainer,
   categoriesList,
   categoriesItem,
-  amountInput,
   dateInput,
   inputContainer,
   commentsHeader,
   categoriesHeader,
+  amountInputCost,
+  amountInputIncome,
+  blockHeader,
+  radioCost,
+  radioIncome,
 } from "./FormCostIncome.module.css";
 
 const categoriesCost = [
@@ -26,9 +30,14 @@ const categoriesCost = [
 
 const categoriesIncom = ["Regular Income", "Irregular Income"];
 
-const FormCostIncome = ({ actionType, changeIsModalOpen }) => {
+const FormCostIncome = ({ actionType, changeIsModalOpen = null }) => {
   const categories =
     actionType === "COST" ? [...categoriesCost] : [...categoriesIncom];
+
+  const amountStyle =
+    actionType === "COST" ? amountInputCost : amountInputIncome;
+    
+  const radioStyle = actionType === "COST" ? radioCost : radioIncome;
 
   const [amount, setAmount] = useState(0);
   const [date, setDate] = useState("");
@@ -37,8 +46,10 @@ const FormCostIncome = ({ actionType, changeIsModalOpen }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(`amount: ${amount}; date: ${date}; category: ${category}; comments: ${comments};`);
-    changeIsModalOpen();
+    console.log(
+      `amount: ${amount}; date: ${date}; category: ${category}; comments: ${comments};`
+    );
+    if(changeIsModalOpen) changeIsModalOpen();
   };
 
   const handleChange = ({ target: { value, name } }) => {
@@ -59,12 +70,11 @@ const FormCostIncome = ({ actionType, changeIsModalOpen }) => {
         break;
     }
   };
-
   return (
     <form className={formContainer} onSubmit={handleSubmit}>
       <div className={inputContainer}>
         <input
-          className={amountInput}
+          className={amountStyle}
           name="amount"
           onChange={handleChange}
           placeholder="Amount.00"
@@ -76,21 +86,27 @@ const FormCostIncome = ({ actionType, changeIsModalOpen }) => {
           name="date"
           type="date"
           onChange={handleChange}
-          placeholder="DD / MM /"
+          placeholder="DD/MM/"
         />
       </div>
-      <span className={categoriesHeader}>Categories</span>
+      <span className={`${categoriesHeader} ${blockHeader}`}>Categories</span>
       <ul className={categoriesList} role="group">
         {categories.map((category) => (
           <li key={category} className={categoriesItem}>
             <label>
-              <input onChange={handleChange} name="categories" type="radio" value={category} />
-              {category}
+              <input
+                className={radioStyle}
+                onChange={handleChange}
+                name="categories"
+                type="radio"
+                value={category}
+              />
+              <span style={{ padding: "0 0 0 16px" }}>{category}</span>
             </label>
           </li>
         ))}
       </ul>
-      <span className={commentsHeader}>Comments</span>
+      <span className={`${commentsHeader} ${blockHeader}`}>Comments</span>
       <textarea
         className={textarea}
         onChange={handleChange}
