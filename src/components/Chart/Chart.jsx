@@ -1,7 +1,7 @@
 import React from "react";
-import { useMediaQuery } from "react-responsive";
+
 import { VictoryPie } from "victory";
-import { button, wrapSVG, wrap, title } from "./Chart.module.css";
+import { button, wrapSVG, wrap } from "./Chart.module.css";
 
 const data = [
   { x: "Main Expenses", y: 8700 },
@@ -28,12 +28,8 @@ const colorCategory = [
 ];
 
 const Chart = () => {
-  const isTabletDevice = useMediaQuery({
-    query: "(min-width: 768px)",
-  });
   return (
     <section className={wrap}>
-      {isTabletDevice && <h2 className={title}>Cost Diagram</h2>}
       <div className={wrapSVG}>
         <svg viewBox="35 35 330 330">
           <VictoryPie

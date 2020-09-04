@@ -1,0 +1,38 @@
+@value colors "../../styles/variables.css";
+@value color-main, color-text-income, color-text-main-light, btn-main, btn-active, font-family-primary from colors;
+
+.title {
+  text-align: center;
+  line-height: 89px;
+  background-color: color-main;
+  color: color-text-main-light;
+  font-family: font-family-primary;
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  border-radius: 3px 3px 0 0;
+}
+
+@media screen and (min-width: 768px) {
+  .wrap {
+    width: 702px;
+    background-color: #ffffff;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (min-width: 1658px) {
+  .wrap {
+    width: 1260px;
+    box-shadow: 10px 17px 40px rgba(1, 1, 0, 0.15);
+  }
+
+  .title {
+    margin-bottom: 82px;
+  }
+
+  .container {
+    display: flex;
+    justify-content: space-around;
+  }
+}

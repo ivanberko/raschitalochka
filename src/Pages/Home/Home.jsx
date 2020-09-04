@@ -5,7 +5,7 @@ import { useMediaQuery } from "react-responsive";
 import MainTableMobile from "../../components/MainTable/Mobile/MainTableMobile";
 import MainTableDesckop from "../../components/MainTable/TabletOrDesktop/MainTableDesckop";
 import ModalWindow from "../../components/ModalWindow";
-import Chart from "../../components/Chart/Chart";
+import LayoutDiagram from "../../components/LayoutDiagram/LayoutDiagram";
 
 import { button } from "./Button.module.css";
 
@@ -25,7 +25,7 @@ const Home = () => {
 
   return (
     <>
-      <Chart />
+      <LayoutDiagram />
       {isMobileDevice ? (
         <MainTableMobile>
           {/* <NavLink path="/income" /> <CostIncome actionType="INCOME" />
