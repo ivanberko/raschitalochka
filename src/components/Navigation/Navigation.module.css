@@ -1,0 +1,160 @@
+@value var: "../../styles/variables.css";
+@value color-main, btn-main, color-main-dark, color-text-main-light, color-text-logout, color-white, color-secondary, font-family-primary from var;
+
+.navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 40px;
+  background-color: color-main;
+}
+
+.wrap {
+  display: flex;
+  align-items: center;
+}
+
+.link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 25px;
+  margin: 0 6px;
+  border-radius: 5px;
+  background-color: color-main-dark;
+  text-decoration: none;
+  color: color-text-logout;
+  position: relative;
+}
+
+.activeLink {
+  background-color: btn-main;
+  color: color-text-main-light;
+}
+
+.link p {
+  display: none;
+}
+
+/* MEDIA */
+
+/* tablet  */
+
+@media screen and (min-width: 768px) {
+  .navigation {
+    height: 100%;
+    background-color: transparent;
+  }
+
+  .stick {
+    width: 1px;
+    height: 15px;
+    margin-right: 20px;
+
+    background-color: color-text-logout;
+  }
+
+  .link {
+    width: 100%;
+    position: relative;
+    margin: 0;
+    margin-right: 20px;
+    background-color: transparent;
+  }
+
+  .link p {
+    display: block;
+  }
+
+  .activeLink {
+    background-color: transparent;
+    color: color-secondary;
+  }
+
+  .activeLink p {
+    font-family: font-family-primary;
+    font-weight: 700;
+    color: color-secondary;
+  }
+
+  .text {
+    font-size: 15px;
+    font-weight: 500;
+    padding-left: 10px;
+    color: color-text-logout;
+  }
+
+  .wrapBlance p {
+    display: inline-block;
+  }
+
+  .textBalabce {
+    display: flex;
+    font-size: 15px;
+    font-weight: 500;
+    color: color-text-logout;
+  }
+
+  .balance {
+    color: btn-main;
+  }
+}
+
+/* desktop  */
+
+@media screen and (min-width: 1224px) {
+  .navigation {
+    max-width: 395px;
+    flex-direction: column;
+  }
+
+  .wrap {
+    width: 100%;
+    margin-bottom: 40px;
+    padding: 40px 0;
+    flex-direction: column;
+    border-radius: 5px;
+    background-color: color-main;
+  }
+
+  .stick {
+    display: none;
+  }
+
+  .link {
+    justify-content: start;
+    margin: 0;
+    padding: 20px 30px;
+    border-radius: 0;
+    color: color-text-main-light;
+  }
+
+  .link p {
+    color: color-text-main-light;
+  }
+
+  .activeLink {
+    background-color: color-secondary;
+  }
+
+  .wrapBlance {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px 30px;
+    width: 100%;
+    background-color: color-main;
+    border-radius: 5px;
+  }
+
+  .textBalabce {
+    font-weight: 700;
+    color: color-text-main-light;
+  }
+
+  .balance {
+    font-weight: 700;
+    color: color-text-main-light;
+  }
+}

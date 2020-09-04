@@ -1,10 +1,14 @@
 import React from "react";
 
 // Components
-import Home from "../../Pages/Home/Home";
+import Home from "../../pages/Home/Home";
 
 export const App = () => {
-  return <Home />;
+  return (
+    <div>
+      <Home />
+    </div>
+  );
 };
 
 export default App;

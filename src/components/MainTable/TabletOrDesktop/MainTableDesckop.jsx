@@ -7,6 +7,33 @@ import {
   boxButtons,
 } from "./MainTableDesckop.module.css";
 
+const transferData = [
+  {
+    date: "04.01.19",
+    type: "+",
+    categories: "Regular Income",
+    comment: "January bonus",
+    amount: "100.00",
+    balance: "6 900.00",
+  },
+  {
+    date: "04.01.19",
+    type: "-",
+    categories: "Food",
+    comment: "Coffee with Tim",
+    amount: "30.00",
+    balance: "3 400.00",
+  },
+  {
+    date: "04.01.19",
+    type: "-",
+    categories: "Food",
+    comment: "Coffee with Tim",
+    amount: "30.00",
+    balance: "3 400.00",
+  },
+];
+
 const MainTableDesckop = ({ children }) => {
   return (
     <section className={wrap}>
@@ -23,30 +50,20 @@ const MainTableDesckop = ({ children }) => {
           </tr>
         </thead>
         <tbody>
-          <tr className={tableRow}>
-            <td>04.01.19</td>
-            <td>+</td>
-            <td>Regular Income</td>
-            <td>January bonus</td>
-            <td style={{ color: "#75c16e" }}>100.00</td>
-            <td>6 900.00</td>
-          </tr>
-          <tr className={tableRow}>
-            <td>05.07.19</td>
-            <td>-</td>
-            <td>Food</td>
-            <td>Coffee with Tim</td>
-            <td style={{ color: "#ff6c00" }}>30.00</td>
-            <td>3 400.00</td>
-          </tr>
-          <tr className={tableRow}>
-            <td>05.07.19</td>
-            <td>-</td>
-            <td>Food</td>
-            <td>Coffee with Tim</td>
-            <td style={{ color: "#ff6c00" }}>30.00</td>
-            <td>3 400.00</td>
-          </tr>
+          {transferData.map(
+            ({ date, type, categories, comment, amount, balance }, index) => (
+              <tr key={index} className={tableRow}>
+                <td>{date}</td>
+                <td>{type}</td>
+                <td>{categories}</td>
+                <td>{comment}</td>
+                <td style={{ color: type === "+" ? "#75c16e" : "#ff6c00" }}>
+                  {amount}
+                </td>
+                <td>{balance}</td>
+              </tr>
+            )
+          )}
         </tbody>
       </table>
     </section>
