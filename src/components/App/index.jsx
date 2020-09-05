@@ -1,12 +1,17 @@
 import React from "react";
-import Registartion from '../Registration/Registration'
+import Registartion from '../Registration/Registration';
+import Login from '../Login/Login'
+
+// Components
+// import Home from "../../pages/Home/Home";
 
 export const App = () => {
   return (
     <div>
-      <Registartion />
+      {/* <Home /> */}
+      <Login />
     </div>
-  )
+  );
 };
 
 export default App;
