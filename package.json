@@ -17,11 +17,8 @@
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
-<<<<<<< HEAD
-    "victory": "^35.0.8"
-=======
+    "victory": "^35.0.8",
     "yup": "^0.29.3"
->>>>>>> 07cba14d4a931e26886d45891c036c327b46e55f
   },
   "scripts": {
     "start": "react-scripts start",
