@@ -1,0 +1,21 @@
+@value variables  "../../../styles/variables.css";
+@value color-text-secondary-dark, table-row-bg-light, table-row-bg-dark from variables;
+
+.currencyItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 37px;
+  height: 40px;
+  font-family: HelveticaNeueCyr;
+  font-weight: 400;
+  color: color-text-secondary-dark;
+  background-color: table-row-bg-light;
+  border-bottom: 2px solid table-row-bg-dark;
+}
+
+@media (min-width: 768px) {
+  .currencyItem {
+    padding: 15px 27px;
+  }
+}
