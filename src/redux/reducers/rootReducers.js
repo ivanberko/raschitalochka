@@ -6,19 +6,20 @@ import storage from "redux-persist/lib/storage";
 import { user } from './session/sessionReducer';
 // oursReduser finance
 
-const sessionPersistConfig = {
-  key: "session",
-  storage,
-  whitelist: ["token"],
-};
+// const sessionPersistConfig = {
+//   key: "session",
+//   storage,
+//   whitelist: ["token"],
+// };
 
-const financePersistConfig = {
-  key: "finance",
-  storage,
-};
+// const financePersistConfig = {
+//   key: "finance",
+//   storage,
+// };
 
 const rootreducer = combineReducers({
-  session: persistReducer(sessionPersistConfig, user),
+  // session: persistReducer(sessionPersistConfig, user),
+  user
   // finance: persistReducer(financePersistConfig, "ourreducer"),
 });
 

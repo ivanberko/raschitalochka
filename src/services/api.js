@@ -17,6 +17,12 @@ export const register = async (data) => {
   return response;
 };
 
+export const logIn = async (data) => {
+    setBaseURL();
+    const response = await axios.post("/api/login", data);
+    return response;
+  };
+
 export const getFinanceTableById = async (userId, token) => {
   setBaseURL();
   setAuthHeader(token);
