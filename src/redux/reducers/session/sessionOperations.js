@@ -16,7 +16,6 @@ import { setAuthHeader, setBaseURL } from "../../../services/api";
 export const login = (data) => (dispatch) => {
   dispatch(loginRequest());
   setBaseURL();
-
   axios
     .post("/api/login", data)
     .then((res) => {
@@ -30,10 +29,9 @@ export const login = (data) => (dispatch) => {
     });
 };
 
-export const logout = () => (dispatch, getState) => {
+export const logout = (storeToken = null) => (dispatch, getState) => {
   dispatch(logoutRequest());
-  const token = getToken(getState());
-
+  const token = storeToken ? storeToken : getToken(getState());
   setBaseURL();
   setAuthHeader(token);
 

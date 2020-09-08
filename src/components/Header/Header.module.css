@@ -17,8 +17,8 @@
   width: 27px;
   height: auto;
 }
-.logout,
-.logout:active {
+.logoutStyle,
+.logoutStyle:active {
   text-decoration: none;
   color: color-text-logout;
 }
@@ -55,12 +55,13 @@
   .logo {
     width: 32px;
   }
-  .logout {
+  .logoutStyle {
     display: flex;
+    cursor: pointer;
     justify-content: space-between;
     align-items: center;
   }
-  .logout img {
+  .logoutStyle img {
     margin-right: 10px;
   }
 

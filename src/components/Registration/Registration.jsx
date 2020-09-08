@@ -144,7 +144,7 @@ const Registration = () => {
                 <button className={styles.registration__btn} type="submit">Register</button>
             </form>
             <NavLink
-                to='/' exact
+                to='/login' exact
                 className={styles.login__link}
             >Login</NavLink>
         </div >
