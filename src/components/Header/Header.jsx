@@ -1,5 +1,6 @@
 import React from "react";
 import { useMediaQuery } from "react-responsive";
+import { NavLink } from 'react-router-dom';
 import logoIcon from "../../images/logo.png";
 import exit from "../../images/exit.png";
 import {
@@ -18,17 +19,17 @@ const Header = () => {
   return (
     <div className={wrapper}>
       <div className={header}>
-        <div className={headerLeftWrapper}>
+        <NavLink to='/home' className={headerLeftWrapper}>
           <img src={logoIcon} alt="logo" className={logo} />
           {isMobile ? null : <p>Raschitalochka</p>}
-        </div>
+        </NavLink>
 
         <div className={headerRightWrapper}>
           <p className={userName}>Your Name</p>
-          <a href="#" className={logout}>
+          <NavLink to='/' className={logout}>
             <img src={exit} alt="logo" />
             {isMobile ? null : <p>Logout</p>}
-          </a>
+          </NavLink>
         </div>
       </div>
     </div>

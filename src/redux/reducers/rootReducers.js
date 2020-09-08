@@ -1,6 +1,12 @@
 import { combineReducers } from "redux";
 
-import { user } from "./session/sessionReducer";
-const rootreducer = combineReducers({ user });
+// oursReduser session
+import sessionReducer from './session/sessionReducer';
+// oursReduser finance
+
+
+const rootreducer = combineReducers({
+  session: sessionReducer,
+});
 
 export default rootreducer;

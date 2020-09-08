@@ -1,6 +1,8 @@
 @value var: "../../styles/variables.css";
 @value color-main, btn-main, color-main-dark, color-text-main-light, color-text-logout, color-white, color-secondary, font-family-primary from var;
 
+
+
 .navigation {
   display: flex;
   justify-content: center;

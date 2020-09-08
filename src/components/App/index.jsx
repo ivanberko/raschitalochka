@@ -1,17 +1,21 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Redirect} from 'react-router-dom';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
+import { Route, Redirect, Switch} from 'react-router-dom';
 
 import Registartion from '../Registration/Registration';
 import Login from '../Login/Login'
+import Home from '../../Pages/Home/Home';
 
 
-export const App = () => {
+export const App = (props) => {
+  console.log(props);
   return (
     <div>
-      {/* <Login /> */}
-      <Registartion />
+    <Switch>
+      <Route path="/" exact component={Login} />
+      <Route path="/registration" component={Registartion} />
+      <Route path="/home" component={Home} />
+      <Redirect to="/" />
+    </Switch>
     </div>
   );
 };

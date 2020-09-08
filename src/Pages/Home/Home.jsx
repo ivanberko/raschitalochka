@@ -1,52 +1,19 @@
-import React, { useState } from "react";
-import { useMediaQuery } from "react-responsive";
+import React from "react";
 
-// Components
-import MainTableMobile from "../../components/MainTable/Mobile/MainTableMobile";
-import MainTableDesckop from "../../components/MainTable/TabletOrDesktop/MainTableDesckop";
-
-import { button } from "./Button.module.css";
-
-import ModalWindow from "../../components/ModalWindow";
+import Header from '../../components/Header/Header';
+import Sidebar from '../../components/Sidebar/Sidebar';
+import MainInfo from '../../components/MainInfo/MainInfo';
+import {mainWrapper} from './Home.module.css';
 
 const Home = () => {
-  const isMobileDevice = useMediaQuery({
-    query: "(max-device-width: 767px)",
-  });
-
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [actionType, setActionType] = useState("COST");
-  const changeIsModalOpen = (e) => {
-    if (!isModalOpen) {
-    setActionType(e.target.name);      
-    }
-    setIsModalOpen(!isModalOpen);
-  };
 
   return (
     <>
-      {isMobileDevice ? (
-        <MainTableMobile>
-        {/* <NavLink path="/income" /> <CostIncome actionType="INCOME" />  к примеру*/}
-        {/* <NavLink path="/cost" /> <CostIncome actionType="COST" /> */}
-        </MainTableMobile>
-      ) : (
-        <MainTableDesckop>
-          <button className={button} onClick={changeIsModalOpen} name="INCOME">
-            Add Income
-          </button>
-          <button className={button} onClick={changeIsModalOpen} name="COST">
-            Add Cost
-          </button>
-        </MainTableDesckop>
-      )}
-      {isModalOpen && (
-        <ModalWindow
-          changeIsModalOpen={changeIsModalOpen}
-          actionType={actionType}
-        />
-      )}
-      
+    <Header />
+    <div  className={mainWrapper}>
+      <Sidebar />
+      <MainInfo />
+    </div>
     </>
   );
 };

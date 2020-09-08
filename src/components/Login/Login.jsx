@@ -4,20 +4,16 @@ import styles from '../Login/login.module.css';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import logo from '../../images/registration/logo.jpg';
+// import { getFinanceTableById } from '../../services/api.js';
+import withAuth  from '../../hoc/withAuth'; 
 
-const Login = () => {
-
+const Login = ({login, history}) => {
     const formik = useFormik( {
         initialValues: {
-            pass: '',
             confirmPass: '',
             email: '',
-            userName: '',
         },
         validationSchema: Yup.object( {
-            pass: Yup.string()
-                .min( 8, 'Must be from 8 to 16 characters' )
-                .required( 'Required' ),
             confirmPass: Yup.string()
                 .min( 8, 'Must be from 8 to 16 characters' )
                 .max( 16, 'Must be from 8 to 16 characters' )
@@ -25,15 +21,22 @@ const Login = () => {
             email: Yup.string()
                 .email( 'Invalid email address' )
                 .required( 'Required' ),
-            userName: Yup.string()
-                .min( 4, 'Must be from 6 to 12 characters' )
-                .max( 12, 'Must be from 6 to 12 characters' )
-                .required( 'Required' ),
         } ),
         onSubmit: values => {
-            if( formik.values.pass === formik.values.confirmPass && formik.values.userName.length >= 4 ) {
-                alert( JSON.stringify( values, null, 2 ) );
-            } else alert( 'Please confirm your password' );
+            
+    login({ email: values.email, password: values.confirmPass });
+            history.push('/home')
+            // loginRequest({ 
+            //         email: values.email,
+            //         password: values.confirmPass})
+            //         .then(res=>{
+            //             console.log(res);
+            //             getFinanceTableById(res.data.user.id,res.data.token)
+            //             .then(res=> console.log(res))
+            //             .catch(err=> console.log(err));
+            //         })
+            //         .catch(err=> console.log(err));
+                console.log( JSON.stringify( values, null, 2 ) );
         },
     } );
 
@@ -57,7 +60,7 @@ const Login = () => {
                     <div></div>
                 ) : null}
                 <input
-                    className={formik.values.pass.length >= 8 ? `${styles.pass__input} ${styles.active}` : styles.pass__input}
+                    className={formik.values.confirmPass.length >= 8 ? `${styles.pass__input} ${styles.active}` : styles.pass__input}
                     placeholder='Password Confirmation'
                     id="confirmPass"
                     name="confirmPass"
@@ -69,7 +72,7 @@ const Login = () => {
                 <button className={styles.registration__btn} type="submit">Enter</button>
             </form>
             <NavLink
-                to='/' exact
+                to='/registration' exact
                 className={styles.login__link}
             >Register</NavLink>
             <div className={styles.bg__wrap}>
@@ -78,4 +81,4 @@ const Login = () => {
     )
 }
 
-export default Login;
+export default withAuth(Login);
