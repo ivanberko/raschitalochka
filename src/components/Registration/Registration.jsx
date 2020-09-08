@@ -5,6 +5,8 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import logo from '../../images/registration/logo.jpg';
 
+import { register } from '../../services/api';
+
 const Registration = () => {
 
     const formik = useFormik( {
@@ -32,7 +34,14 @@ const Registration = () => {
         } ),
         onSubmit: values => {
             if( formik.values.pass === formik.values.confirmPass && formik.values.userName.length >= 4 ) {
-                alert( JSON.stringify( values, null, 2 ) );
+               register(  { 
+                    name: values.userName,
+                    email: values.email,
+                    password: values.pass}
+                    ).then(res=> {
+                        console.log(res);
+                    }).catch(err=>console.log(err));
+                console.log( JSON.stringify( values, null, 2 ) );
             } else alert( 'Please confirm your password' );
         },
     } );
@@ -135,7 +144,7 @@ const Registration = () => {
                 <button className={styles.registration__btn} type="submit">Register</button>
             </form>
             <NavLink
-                to='/' exact
+                to='/login' exact
                 className={styles.login__link}
             >Login</NavLink>
         </div >
