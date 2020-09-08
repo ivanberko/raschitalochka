@@ -2,7 +2,7 @@
 @value colors "../../styles/variables.css";
 @value color-text-income, color-text-main-light,btn-main, btn-active from colors;
 
-svg {
+.graphBox svg {
   padding: 24px 0;
 }
 
