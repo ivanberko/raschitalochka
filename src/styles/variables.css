@@ -1,0 +1,25 @@
+/* COLORS */
+@value color-main: #516d57;
+@value color-main-dark: #3f5544;
+@value color-secondary: #6fa76f;
+@value color-white: #fff;
+
+/* TEXT */
+@value color-text-main-light: #fff;
+@value color-text-secondary-light: #f7f8fa;
+@value color-text-main-dark: #282828;
+@value color-text-secondary-dark: #2c353e;
+@value c: #ff6c00;
+@value color-text-cost: #75c16e;
+@value color-text-logout: #6b7d83;
+
+/* TABLE */
+@value table-row-bg-dark: #f3f6f6;
+@value table-row-bg-light: #fff;
+
+/* BUTTON */
+@value btn-main: #619361;
+@value btn-active: linear-gradient(to right, #ecb22a 0%, rgb(255, 108, 0) 100%);
+
+/* FONT-FAMILY */
+@value font-family-primary: "HelveticaNeueCyr", "Roboto", "Open Sans", sans-serif;
