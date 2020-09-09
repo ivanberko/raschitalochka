@@ -4,8 +4,12 @@ import styles from '../Registration/registration.module.css';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import logo from '../../images/registration/logo.jpg';
+import withAuth from "../../hoc/withAuth";
 
-const Registration = () => {
+
+import { register } from '../../services/api';
+
+const Registration = ({ login, history }) => {
 
     const formik = useFormik( {
         initialValues: {
@@ -32,7 +36,14 @@ const Registration = () => {
         } ),
         onSubmit: values => {
             if( formik.values.pass === formik.values.confirmPass && formik.values.userName.length >= 4 ) {
-                alert( JSON.stringify( values, null, 2 ) );
+               register(  { 
+                    name: values.userName,
+                    email: values.email,
+                    password: values.pass}
+                    ).then(res=> {
+                        login({ email: values.email, password: values.pass });
+                        history.push('/home');
+                    }).catch(err=>console.log(err));
             } else alert( 'Please confirm your password' );
         },
     } );
@@ -135,11 +146,11 @@ const Registration = () => {
                 <button className={styles.registration__btn} type="submit">Register</button>
             </form>
             <NavLink
-                to='/' exact
+                to='/login' exact
                 className={styles.login__link}
             >Login</NavLink>
         </div >
     )
 }
 
-export default Registration;
+export default withAuth(Registration);
