@@ -20,8 +20,8 @@ const Login = ({ login, history }) => {
       email: Yup.string().email("Invalid email address").required("Required"),
     }),
     onSubmit: (values) => {
-      login({ email: values.email, password: values.confirmPass });
-      history.push("/home");
+      login({ email: values.email, password: values.confirmPass }, history);
+      // history.push("/home");
     },
   });
 

@@ -13,7 +13,7 @@ import {
 } from "./sessionActions";
 import { setAuthHeader, setBaseURL } from "../../../services/api";
 
-export const login = (data) => (dispatch) => {
+export const login = (data, history) => (dispatch) => {
   dispatch(loginRequest());
   setBaseURL();
   axios
@@ -23,9 +23,11 @@ export const login = (data) => (dispatch) => {
       save("userId", res.data.user.id);
       setAuthHeader(res.data.token);
       dispatch(loginSuccess(res.data));
+      history.push("/home");
     })
     .catch((error) => {
       dispatch(loginError(error.response.data.message));
+      alert("User is not defined"); //мб пинотифи какой нибудь?
     });
 };
 
