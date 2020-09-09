@@ -12,7 +12,6 @@ export const App = (props) => {
     <div>
       <Router>
       <Route
-        exact
         path="/"
         render={() => (isAuthorized ? <Redirect to="/home" /> : <Redirect to="/login" />)}
       />

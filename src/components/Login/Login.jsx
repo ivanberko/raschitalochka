@@ -4,7 +4,6 @@ import styles from "../Login/login.module.css";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import logo from "../../images/registration/logo.jpg";
-// import { getFinanceTableById } from '../../services/api.js';
 import withAuth from "../../hoc/withAuth";
 
 const Login = ({ login, history }) => {

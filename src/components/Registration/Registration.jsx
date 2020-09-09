@@ -4,10 +4,12 @@ import styles from '../Registration/registration.module.css';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import logo from '../../images/registration/logo.jpg';
+import withAuth from "../../hoc/withAuth";
+
 
 import { register } from '../../services/api';
 
-const Registration = () => {
+const Registration = ({ login, history }) => {
 
     const formik = useFormik( {
         initialValues: {
@@ -39,9 +41,9 @@ const Registration = () => {
                     email: values.email,
                     password: values.pass}
                     ).then(res=> {
-                        console.log(res);
+                        login({ email: values.email, password: values.pass });
+                        history.push('/home');
                     }).catch(err=>console.log(err));
-                console.log( JSON.stringify( values, null, 2 ) );
             } else alert( 'Please confirm your password' );
         },
     } );
@@ -151,4 +153,4 @@ const Registration = () => {
     )
 }
 
-export default Registration;
+export default withAuth(Registration);
