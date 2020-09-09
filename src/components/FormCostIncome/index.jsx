@@ -30,7 +30,7 @@ const categoriesCost = [
 
 const categoriesIncom = ["Regular Income", "Irregular Income"];
 
-const FormCostIncome = ({ actionType, changeIsModalOpen = null }) => {
+const FormCostIncome = ({ actionType, changeIsModalOpen }) => {
   const categories =
     actionType === "COST" ? [...categoriesCost] : [...categoriesIncom];
 

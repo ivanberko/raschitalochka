@@ -32,22 +32,22 @@ const Navigation = () => {
         <div className={styles.wrap}>
           <NavLink
             exact
-            to="/"
+            to="/home"
             className={styles.link}
             activeClassName={styles.activeLink}
           >
-            <HomeIcon style={{ fontSize: 16 }} />
+            <HomeIcon style={{ fontSize: 16}} />
             <p className={styles.text}>Home</p>
           </NavLink>
 
           <div className={styles.stick}></div>
 
           <NavLink
-            to="/diagram"
+            to="/home/diagram"
             className={styles.link}
             activeClassName={styles.activeLink}
           >
-            <TimelineIcon style={{ fontSize: 18 }} />
+            <TimelineIcon style={{ fontSize: 18}} />
             <p className={styles.text}>Diagram</p>
           </NavLink>
 
@@ -75,11 +75,11 @@ const Navigation = () => {
 
         {isMobile && (
           <NavLink
-            to="/d"
+            to="/home/currency"
             className={styles.link}
             activeClassName={styles.activeLink}
           >
-            <AttachMoneyIcon style={{ fontSize: 24 }} />
+            <AttachMoneyIcon style={{ fontSize: 24}} />
           </NavLink>
         )}
       </div>
