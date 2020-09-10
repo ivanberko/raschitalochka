@@ -2,10 +2,12 @@ import { combineReducers } from "redux";
 
 import sessionReducer from "./session/sessionReducer";
 import financeReducer from "./finance/financeReducer";
+import filterReducer from "./filter/filterReducer";
 
 const rootreducer = combineReducers({
   session: sessionReducer,
   finance: financeReducer,
+  filter: filterReducer,
 });
 
 export default rootreducer;
