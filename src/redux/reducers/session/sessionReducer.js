@@ -4,6 +4,7 @@ import * as actionTypes from "./sessionActionTypes";
 
 const user = (state = { error: "" }, { type, payload }) => {
   switch (type) {
+    case actionTypes.USER_AUTHORIZED:
     case actionTypes.LOGIN_SUCCESS:
       return payload.user;
 
@@ -17,6 +18,7 @@ const user = (state = { error: "" }, { type, payload }) => {
 
 const token = (state = null, { type, payload }) => {
   switch (type) {
+    case actionTypes.USER_AUTHORIZED:
     case actionTypes.LOGIN_SUCCESS:
       return payload.token;
 
@@ -30,6 +32,7 @@ const token = (state = null, { type, payload }) => {
 
 const isAuthorized = (state = false, { type }) => {
   switch (type) {
+    case actionTypes.USER_AUTHORIZED:
     case actionTypes.LOGIN_SUCCESS:
       return true;
 
