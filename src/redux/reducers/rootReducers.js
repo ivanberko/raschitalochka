@@ -1,16 +1,14 @@
 import { combineReducers } from "redux";
 
-import sessionReducer from './session/sessionReducer';
-// oursReduser finance
-
+import sessionReducer from "./session/sessionReducer";
+import financeReducer from "./finance/financeReducer";
 
 const rootreducer = combineReducers({
   session: sessionReducer,
-// oursReduser finance
-
+  finance: financeReducer,
 });
 
 export default rootreducer;
 
 // Хранить в локалсторадж инфу объектом {юзерИд, токен, имя}
-//при старте приложения записывать в стор эту инфу ^^^ добвать редусеров в сессион и  
+//при старте приложения записывать в стор эту инфу ^^^ добвать редусеров в сессион и
