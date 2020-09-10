@@ -18,6 +18,7 @@ const withAuth = (Component) => {
   const mapDispatchToProps = {
     login: operations.login,
     logout: operations.logout,
+    userSession: operations.userSession
   };
 
   return connect(

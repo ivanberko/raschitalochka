@@ -17,7 +17,7 @@ import {
   wrapper,
 } from "./Header.module.css";
 
-const Header = ({ logout, history }) => {
+const Header = ({ logout, history, user }) => {
   const isMobile = useMediaQuery({ query: "(max-width: 767px)" });
 
   const handleClickLogout = () => {
@@ -34,7 +34,7 @@ const Header = ({ logout, history }) => {
         </NavLink>
 
         <div className={headerRightWrapper}>
-          <p className={userName}>Your Name</p>
+          <p className={userName}>{user.userName}</p>
           <div onClick={handleClickLogout} className={logoutStyle}>
             <img src={exit} alt="logo" />
             {isMobile ? null : <p>Logout</p>}
