@@ -31,3 +31,8 @@ export const logoutError = (error) => ({
     error,
   },
 });
+
+export const userAuthorized = (data) => ({
+  type: actionTypes.USER_AUTHORIZED,
+  payload: data,
+});

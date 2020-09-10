@@ -10,6 +10,7 @@ import {
   logoutRequest,
   logoutSuccess,
   logoutError,
+  userAuthorized,
 } from "./sessionActions";
 import { setAuthHeader, setBaseURL } from "../../../services/api";
 
@@ -18,11 +19,13 @@ export const login = (data, history) => (dispatch) => {
   setBaseURL();
   axios
     .post("/api/login", data)
-    .then((res) => {
-      save("token", res.data.token);
-      save("userId", res.data.user.id);
-      setAuthHeader(res.data.token);
-      dispatch(loginSuccess(res.data));
+    .then(({ data }) => {
+      save("session", {
+        token: data.token,
+        user: { id: data.user.id, userName: data.user.name },
+      });
+      setAuthHeader(data.token);
+      dispatch(loginSuccess(data));
       history.push("/home");
     })
     .catch((error) => {
@@ -40,9 +43,12 @@ export const logout = (storeToken = null) => (dispatch, getState) => {
   axios
     .get("/api/logout")
     .then(() => {
-      save("token", null);
-      save("userId", null);
+      save("session", null);
       dispatch(logoutSuccess());
     })
     .catch((error) => dispatch(logoutError(error.response.data.message)));
+};
+
+export const userSession = (data) => (dispatch) => {
+  dispatch(userAuthorized(data));
 };

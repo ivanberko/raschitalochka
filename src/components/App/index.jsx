@@ -7,14 +7,16 @@ import Home from "../../Pages/Home/Home";
 import { load } from "../../services/localStorage";
 
 export const App = (props) => {
-  const isAuthorized = load("token");
+  const isAuthorized = load("session");
   return (
     <div>
       <Router>
-      <Route
-        path="/"
-        render={() => (isAuthorized ? <Redirect to="/home" /> : <Redirect to="/login" />)}
-      />
+        <Route
+          path="/"
+          render={() =>
+            isAuthorized ? <Redirect to="/home" /> : <Redirect to="/login" />
+          }
+        />
         <Route path="/login" exact component={Login} />
         <Route path="/registration" component={Registartion} />
         <Route path="/home" component={Home} />
