@@ -112,7 +112,7 @@ const FormCostIncome = ({ actionType, changeIsModalOpen }) => {
         onChange={handleChange}
         name="comments"
         type="textarea"
-        placeholder="Lorem ipsum tararam pararam!"
+        placeholder="Comment's"
       />
       <button type="submit" className={button}>
         Add

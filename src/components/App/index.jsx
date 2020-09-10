@@ -7,7 +7,7 @@ import Home from "../../Pages/Home/HomeContainer";
 import { load } from "../../services/localStorage";
 
 export const App = (props) => {
-  const isAuthorized = load("token");
+  const isAuthorized = load("session");
   return (
     <div>
       <Router>
