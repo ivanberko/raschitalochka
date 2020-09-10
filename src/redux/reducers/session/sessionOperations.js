@@ -26,7 +26,7 @@ export const login = (data, history) => (dispatch) => {
       history.push("/home");
     })
     .catch((error) => {
-      dispatch(loginError(error.response.data.message));
+      dispatch(loginError(error));
       alert("User is not defined"); //мб пинотифи какой нибудь?
     });
 };
@@ -44,5 +44,5 @@ export const logout = (storeToken = null) => (dispatch, getState) => {
       save("userId", null);
       dispatch(logoutSuccess());
     })
-    .catch((error) => dispatch(logoutError(error.response.data.message)));
+    .catch((error) => dispatch(logoutError(error)));
 };
