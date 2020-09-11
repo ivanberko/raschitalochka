@@ -43,7 +43,6 @@ const Filter = ({ financeData }) => {
         options={optionsYear}
         defaultInputValue="Year"
         className={styles.select}
-        filterOption={createFilter()}
       />
     </div>
   );
