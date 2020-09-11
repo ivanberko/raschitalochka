@@ -1,10 +1,19 @@
 .wrap {
   display: flex;
   justify-content: space-between;
-  /* width: 100%; */
   margin: 0 10px;
 }
 
 .select {
   width: 47%;
+}
+
+@media screen and (min-width: 768px) {
+  .wrap {
+    margin: 0 auto;
+    max-width: 400px;
+  }
+}
+
+@media screen and (min-width: 1224px) {
 }

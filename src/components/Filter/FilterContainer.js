@@ -1,14 +1,9 @@
 import { connect } from "react-redux";
-import * as filterAction from "../../redux/reducers/filter/filterAction";
-import * as filterSelectors from "../../redux/reducers/filter/filterSelectors";
+import * as financeSelectors from "../../redux/reducers/finance/financeSelectors";
 import Filter from "./Filter";
 
 const mapStateToProps = (state) => ({
-  filterMonth: filterSelectors.getFilterMonth(state),
+  financeData: financeSelectors.getFinanceData(state),
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  onSelectMonth: (month) => dispatch(filterAction.filterMonth(month)),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Filter);
+export default connect(mapStateToProps)(Filter);
