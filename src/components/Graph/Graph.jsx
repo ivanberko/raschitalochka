@@ -20,7 +20,10 @@ const data = [
   { x: "Other", y: 22 },
 ];
 
-const Graph = () => {
+const Graph = ({data}) => {
+
+
+
   return (
     <div className={graphHolder}>
       <div className={graphHolderHeading}>
