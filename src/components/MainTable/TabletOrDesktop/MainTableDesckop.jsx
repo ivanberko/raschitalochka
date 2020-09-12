@@ -34,9 +34,9 @@ const MainTableDesckop = ({ financeData, children }) => {
                 <td>{category}</td>
                 <td>{comments}</td>
                 <td style={{ color: type === "+" ? "#75c16e" : "#ff6c00" }}>
-                  {formatNumbers(amount.toFixed(2))}
+                  {formatNumbers(amount)}
                 </td>
-                <td>{formatNumbers(balanceAfter.toFixed(2))}</td>
+                <td>{formatNumbers(balanceAfter)}</td>
               </tr>
             )
           )}

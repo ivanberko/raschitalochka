@@ -1,6 +1,10 @@
 @value colors "../../../styles/variables.css";
 @value color-white, table-row-bg-dark, color-text-main-dark, font-family-primary from colors;
 
+.wrap {
+  padding-top: 20px;
+}
+
 .list {
   margin: 0;
   padding: 0;
@@ -14,6 +18,7 @@
 
 .list__itemRow {
   display: flex;
+  padding: 16px 0;
   padding-left: 16px;
 }
 
