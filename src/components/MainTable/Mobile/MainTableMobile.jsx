@@ -4,6 +4,7 @@ import { toISODate, formatNumbers } from "../../../helpers/format";
 import { getCategoryColor } from "../../../helpers/initialCategoryColors";
 
 import {
+  wrap,
   list,
   list__item,
   list__itemRow,
@@ -13,7 +14,7 @@ import {
 
 const MainTableMobile = ({ financeData, children }) => {
   return (
-    <section>
+    <section className={wrap}>
       <ul className={list}>
         {financeData.map(
           ({ _id, date, type, category, comments, amount, balanceAfter }) => {
@@ -45,12 +46,12 @@ const MainTableMobile = ({ financeData, children }) => {
                 <div className={list__itemRow}>
                   <p>Amount, UAH</p>
                   <p style={{ color: type === "+" ? "#75c16e" : "#ff6c00" }}>
-                    {formatNumbers(amount.toFixed(2))}
+                    {formatNumbers(amount)}
                   </p>
                 </div>
                 <div className={list__itemRow}>
                   <p>Balance After</p>
-                  <p>{formatNumbers(balanceAfter.toFixed(2))}</p>
+                  <p>{formatNumbers(balanceAfter)}</p>
                 </div>
               </li>
             );
