@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useMediaQuery } from "react-responsive";
 
+import { scrollToUp } from "../../helpers/format";
+
 // Components
 import MainTableMobile from "../../components/MainTable/Mobile/MainTableMobileContainer";
 import MainTableDesckop from "../../components/MainTable/TabletOrDesktop/MainTableDesckopContainer";
@@ -25,6 +27,7 @@ const Main = () => {
   };
   const [isFormOpen, setIsFormOpen] = useState(false);
   const changeIsFormOpen = (e) => {
+    scrollToUp();
     if (!isFormOpen) {
       setActionType(e.target.name);
     }
@@ -53,7 +56,10 @@ const Main = () => {
         </MainTableDesckop>
       )}
       {isFormOpen && (
-        <CostIncome actionType={actionType} changeIsFormOpen={changeIsFormOpen} />
+        <CostIncome
+          actionType={actionType}
+          changeIsFormOpen={changeIsFormOpen}
+        />
       )}
       {isModalOpen && (
         <ModalWindow
