@@ -14,7 +14,7 @@ const Home = (props) => {
       props.userSession(data);
     }
     props.getFinance();
-  }, []);
+  },[]);
   return (
     <>
       <Header {...props} />

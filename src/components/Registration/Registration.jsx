@@ -41,8 +41,7 @@ const Registration = ({ login, history }) => {
           password: values.pass,
         })
           .then((res) => {
-            login({ email: values.email, password: values.pass });
-            history.push("/home");
+            login({ email: values.email, password: values.pass }, history);
           })
           .catch((err) => {
             console.log(err);
