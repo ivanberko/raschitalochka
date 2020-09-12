@@ -41,16 +41,15 @@ const Registration = ( { login, history } ) => {
           name: values.userName,
           email: values.email,
           password: values.pass,
-        } )
-          .then( ( res ) => {
-            login( { email: values.email, password: values.pass } );
-            history.push( "/home" );
-          } )
-          .catch( ( err ) => {
-            console.log( err );
-            alert( "User is already exist" ); //мб пинотифи какой нибудь?
-          } );
-      } else alert( "Please confirm your password" );
+        })
+          .then((res) => {
+            login({ email: values.email, password: values.pass }, history);
+          })
+          .catch((err) => {
+            console.log(err);
+            alert("User is alrydy exist"); //мб пинотифи какой нибудь?
+          });
+      } else alert("Please confirm your password");
     },
   } );
 

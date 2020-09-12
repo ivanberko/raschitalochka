@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { useMediaQuery } from "react-responsive";
 
 // Components
-import MainTableMobile from "../../components/MainTable/Mobile/MainTableMobile";
-import MainTableDesckop from "../../components/MainTable/TabletOrDesktop/MainTableDesckop";
+import MainTableMobile from "../../components/MainTable/Mobile/MainTableMobileContainer";
+import MainTableDesckop from "../../components/MainTable/TabletOrDesktop/MainTableDesckopContainer";
 
 import { button } from "./Button.module.css";
 
