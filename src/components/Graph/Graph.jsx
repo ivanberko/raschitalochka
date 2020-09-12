@@ -10,7 +10,7 @@ const Graph = ({filteredData, totalCost, totalIncome}) => {
   const data = filteredData.map(({category, categoryAmount}) => ({x: category, y: categoryAmount}));
 
  const colorFromDate = filteredData.map(({color})=> (color));
-  console.log(colorFromDate);
+ 
   return (
     
       <div className={graphBox}>
