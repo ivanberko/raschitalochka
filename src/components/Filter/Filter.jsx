@@ -12,13 +12,13 @@ const Filter = ({ financeData }) => {
   const [filteredData, setFilteredData] = useState([]);
   const [allCategories, setAllCategories] = useState({});
 
-  useEffect(() => {
+  useEffect((props) => {
     setFilteredData(
       functions.getFilteredDataByYearAndMonth(financeData, year, month)
     );
   }, [month, year]);
 
-  useEffect(() => {
+  useEffect((props) => {
     setAllCategories(
       functions.getAllCategoryAmount(functions.getType(filteredData, "-"))
     );
