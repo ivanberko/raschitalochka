@@ -7,14 +7,14 @@ import { mainWrapper } from "./Home.module.css";
 import withAuth from "../../hoc/withAuth";
 import { load } from "../../services/localStorage";
 
-const Home = (props) => {
-  useEffect(() => {
-    const data = load("session");
-    if (data) {
-      props.userSession(data);
+const Home = ( props ) => {
+  useEffect( () => {
+    const data = load( "session" );
+    if( data ) {
+      props.userSession( data );
     }
     props.getFinance();
-  }, []);
+  },[]);
   return (
     <>
       <Header {...props} />
@@ -26,4 +26,4 @@ const Home = (props) => {
   );
 };
 
-export default withAuth(Home);
+export default withAuth( Home );

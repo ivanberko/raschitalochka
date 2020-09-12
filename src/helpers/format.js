@@ -1,0 +1,12 @@
+export const toISODate = (milliseconds) => {
+  var date = new Date(milliseconds);
+  var y = String(date.getFullYear()).slice(2);
+  var m = date.getMonth() + 1;
+  var d = date.getDate();
+  m = m < 10 ? "0" + m : m;
+  d = d < 10 ? "0" + d : d;
+  return [d, m, y].join(".");
+};
+
+export const formatNumbers = (num) =>
+  String(num).replace(/(\d)(?=(\d{3})+([^\d]|$))/g, "$1 ");
