@@ -6,7 +6,7 @@ export const initCategoryColors = [
   { category: "Child Care", color: "#5593d7" },
   { category: "Household Products", color: "#ffab00" },
   { category: "Education", color: "#9cc254" },
-  { category: "Entertainment", color: "#73ad57" },
+  { category: "Entertaiment", color: "#73ad57" },
   { category: "Other Expenses", color: "#507c3a" },
   { category: "Irregular Income", color: "#75c16e" },
   { category: "Regular Income", color: "#75c16e" },

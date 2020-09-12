@@ -1,6 +1,12 @@
 /* BUTTON */
 @value colors "../../styles/variables.css";
-@value color-text-income,color-text-main-light,btn-main,btn-active from colors;
+@value color-text-income,color-text-main-light,btn-main,btn-active,color-text-main-dark from colors;
+
+.notifyMessage {
+  text-align: center;
+  padding-top: 20px;
+  color: color-text-main-dark;
+}
 
 .wrap {
   display: flex;

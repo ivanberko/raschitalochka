@@ -1,33 +1,40 @@
-import React from "react";
-import Select from "react-select";
+import React, { useState, useEffect } from "react";
+
+import * as functions from "./functions";
 
 import Graph from "../Graph/Graph";
 import styles from "./Filter.module.css";
 
 const Filter = ({ financeData }) => {
-  const optionsMonth = [
-    { value: 0, label: "January" },
-    { value: 1, label: "February" },
-    { value: 2, label: "March" },
-    { value: 3, label: "April" },
-    { value: 4, label: "May" },
-    { value: 5, label: "June" },
-    { value: 6, label: "July" },
-    { value: 7, label: "August" },
-    { value: 8, label: "September" },
-    { value: 9, label: "October" },
-    { value: 10, label: "November" },
-    { value: 11, label: "December" },
-  ];
+  const [month, setMonth] = useState(functions.months[new Date().getMonth()]);
+  const [year, setYear] = useState(new Date().getFullYear());
 
-  const optionsYear = financeData
-    .map((el) => new Date(el.date).getFullYear())
-    .filter((el, index, arr) => arr.indexOf(el) === index)
-    .map((el) => ({ value: el, label: el }));
+  const [filteredData, setFilteredData] = useState([]);
+  const [allCategories, setAllCategories] = useState({});
 
-  const uniqueMonthIndex = financeData
-    .map((el) => new Date(el.date).getMonth())
-    .filter((el, index, arr) => arr.indexOf(el) === index);
+  useEffect(() => {
+    setFilteredData(
+      functions.getFilteredDataByYearAndMonth(financeData, year, month)
+    );
+  }, [month, year]);
+
+  useEffect(() => {
+    setAllCategories(
+      functions.getAllCategoryAmount(functions.getType(filteredData, "-"))
+    );
+  }, [filteredData]);
+
+  const handleChangeYear = ({ target: { value } }) => {
+    setYear(value);
+  };
+
+  const handleChangeMonth = ({ target: { value } }) => {
+    setMonth(value);
+  };
+
+  const totalCostIncome = (type) => {
+    return functions.getAllTypeAmount(functions.getType(filteredData, type));
+  }
 
   return (
     <>
@@ -35,21 +42,37 @@ const Filter = ({ financeData }) => {
         <div className={styles.graphHolderHeading}>
           <h2 className={styles.heading}>Cost Diagram</h2>
         </div>
-        <Graph />
-        <div className={styles.wrap}>
-          <Select
-            options={optionsMonth}
-            defaultInputValue="Month"
-            className={styles.select}
-            isOptionDisabled={(options) =>
-              !uniqueMonthIndex.some((el) => options.value === el)
-            }
-          />
-          <Select
-            options={optionsYear}
-            defaultInputValue="Year"
-            className={styles.select}
-          />
+        <div>
+          {filteredData.length > 0 ? (
+            <Graph filteredData={allCategories} />
+          ) : (
+            <h2 className={styles.notifyMessage}>You have no transactions</h2>
+          )}
+          <div className={styles.wrap}>
+            <select
+              className={styles.select}
+              value={month}
+              onChange={handleChangeMonth}
+            >
+              {functions.getMonths(financeData).map((month) => (
+                <option key={month} value={month}>
+                  {month}
+                </option>
+              ))}
+            </select>
+            <select
+              className={styles.select}
+              value={year}
+              onChange={handleChangeYear}
+            >
+              {functions.getYears(financeData).map((year) => (
+                <option key={year} value={year}>
+                  {year}
+                </option>
+              ))}
+            </select>
+          </div>
+          {/*{ filteredData.length>0 ?  <Table filteredData={allCategories} totalCost={totalCostIncome('-')} totalIncome={totalCostIncome('+')} /> : <h2 className={styles.notifyMessage}>You have no transactions</h2>} */}
         </div>
       </div>
     </>

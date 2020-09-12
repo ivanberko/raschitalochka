@@ -16,7 +16,7 @@ const data = [
   { x: "Other", y: 22 },
 ];
 
-const Graph = () => {
+const Graph = ({filteredData, totalCost, totalIncome}) => {
   return (
     
       <div className={graphBox}>

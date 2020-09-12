@@ -7,6 +7,5 @@ const mapStateToProps = (state) => ({
   financeData: getFinanceData(state),
 });
 
-const mapDispatchToProps = {};
 
-export default connect(mapStateToProps, mapDispatchToProps)(MainTableDesckop);
+export default connect(mapStateToProps, null)(MainTableDesckop);

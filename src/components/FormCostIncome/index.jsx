@@ -34,7 +34,7 @@ const FormCostIncome = ({
     actionType === "COST" ? style.radioCost : style.radioIncome;
 
   const [amount, setAmount] = useState(0);
-  const [date, setDate] = useState("");
+  const [date, setDate] = useState(Date.now());
   const [category, setCategory] = useState("");
   const [comments, setComments] = useState("");
 
