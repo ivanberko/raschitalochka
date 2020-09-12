@@ -1,3 +1,7 @@
+/* BUTTON */
+@value colors "../../styles/variables.css";
+@value color-text-income,color-text-main-light,btn-main,btn-active from colors;
+
 .wrap {
   display: flex;
   justify-content: space-between;
@@ -13,7 +17,40 @@
     margin: 0 auto;
     max-width: 400px;
   }
+
+  .graphHolder {
+    margin: 0 auto;
+    width: 600px;
+    border: 1px;
+    box-shadow: 10px 17px 40px rgba(1, 1, 0, 0.15);
+  }
+
+  .graphHolderHeading {
+    background-color: btn-main;
+    text-align: center;
+  }
+
+  .heading {
+    color: color-text-main-light;
+    padding: 40px 260px;
+  }
+
+  .graphBox {
+    min-width: 410px;
+    text-align: center;
+  }
 }
 
-@media screen and (min-width: 1224px) {
+@media screen and (min-width: 1224px) {}
+
+/* GRAPHBOX */
+
+.graphBox {
+  width: 280px;
+  margin: 0 auto;
+}
+
+.graphBox svg {
+  padding: 24px 0;
+
 }

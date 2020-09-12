@@ -6,4 +6,4 @@ const mapStateToProps = (state) => ({
   financeData: financeSelectors.getFinanceData(state),
 });
 
-export default connect(mapStateToProps)(Filter);
+export default connect(mapStateToProps,null)(Filter);

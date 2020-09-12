@@ -1,11 +1,7 @@
 import React from "react";
 import { VictoryPie } from "victory";
 import {
-  button,
   graphBox,
-  graphHolder,
-  graphHolderHeading,
-  heading,
 } from "./Graph.module.css";
 
 const data = [
@@ -22,10 +18,7 @@ const data = [
 
 const Graph = () => {
   return (
-    <div className={graphHolder}>
-      <div className={graphHolderHeading}>
-        <h2 className={heading}>Cost Diagram</h2>
-      </div>
+    
       <div className={graphBox}>
         <svg viewBox="0 0 1400 1400">
           <VictoryPie
@@ -51,12 +44,7 @@ const Graph = () => {
             ]}
           />
         </svg>
-
-        <button type="button" className={button}>
-          Update Diagram
-        </button>
       </div>
-    </div>
   );
 };
 
