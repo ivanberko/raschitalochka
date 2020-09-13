@@ -51,7 +51,7 @@ export const getFilteredDataBySelectedYear = (arr, selectedYear) => {
     if (new Date(el.date).getFullYear() === selectedYear) {
       return el;
     }
-    return;
+    return null;
   });
 };
 

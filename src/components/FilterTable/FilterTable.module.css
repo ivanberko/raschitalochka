@@ -1,0 +1,136 @@
+.tableWrap {
+    min-width: 320px;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0 4%
+}
+
+.table {
+    border-bottom: 2px solid #b9c9d4
+}
+
+.table,
+.total {
+    margin: 0 auto
+}
+
+.row,
+.rowHeader,
+.totalRow {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    -webkit-align-items: center;
+    align-items: center;
+    padding: 0 1.3rem
+}
+
+.rowHeader {
+    background-color: #f3f6f6;
+    height: 3.125rem;
+    font-size: .93rem;
+    color: #282828;
+    font-weight: 700;
+    line-height: 2
+}
+
+.row {
+    font-size: .81rem;
+    color: #282828;
+    line-height: 1.385;
+    height: 2.56rem;
+    border-bottom: 2px solid #f3f6f6
+}
+
+.categoryWrap {
+    display: -webkit-flex;
+    display: flex
+}
+
+.square {
+    margin: 0;
+    width: 15px;
+    height: 15px
+}
+
+.cellCategory {
+    margin-left: 13px
+}
+
+.total {
+    padding-top: 1rem;
+    padding-bottom: 2.5rem
+}
+
+.totalRow {
+    font-size: .93rem;
+    color: #282828;
+    line-height: 2
+}
+
+.totalCosts,
+.totalCostsAmaunt,
+.totalIncome,
+.totalIncomeAmaunt {
+    font-weight: 700
+}
+
+.totalCostsAmaunt {
+    color: #ff6c00
+}
+
+.totalIncomeAmaunt {
+    color: #6fa76f
+}
+
+@media (min-width: 768px) {
+    .table {
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-direction: column;
+        flex-direction: column;
+        -webkit-flex-wrap: wrap;
+        flex-wrap: wrap;
+        background-color: #fff
+    }
+
+    .table,
+    .total {
+        width: auto
+    }
+
+    .totalRow {
+        display: -webkit-flex;
+        display: flex;
+        -webkit-justify-content: flex-end;
+        justify-content: flex-end
+    }
+
+    .totalCosts,
+    .totalCostsAmaunt,
+    .totalIncome,
+    .totalIncomeAmaunt {
+        width: 110px;
+        font-weight: 700
+    }
+
+    .totalCostsAmaunt,
+    .totalIncomeAmaunt {
+        text-align: right
+    }
+}
+
+@media (min-width: 1024px) {
+    .row {
+        font-size: .81rem;
+        color: #282828;
+        line-height: 1.385;
+        height: 1.5rem;
+        border-bottom: 1px solid #f3f6f6
+    }
+
+    .total {
+        padding: .5rem 0 0
+    }
+}

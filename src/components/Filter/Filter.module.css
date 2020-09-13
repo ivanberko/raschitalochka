@@ -2,67 +2,122 @@
 @value colors "../../styles/variables.css";
 @value color-text-income,color-text-main-light,btn-main,btn-active,color-text-main-dark from colors;
 
-.notifyMessage {
-  text-align: center;
-  padding-top: 20px;
-  color: color-text-main-dark;
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center
 }
 
 .wrap {
+  width: 100%
+}
+
+.chartWrap {
+  flex-direction: column;
+  margin: 0 auto 20px
+}
+
+.chartWrap,.selectors {
   display: flex;
+  align-items: center
+}
+
+.selectors {
+  max-width: 360px;
   justify-content: space-between;
-  margin: 0 10px;
+  margin: 0 auto 16px;
+  padding: 0 22px;
 }
 
-.select {
-  width: 47%;
+.addCosts {
+  text-align: center;
+  padding: 48px 0;
+  font-family: HelveticaNeueCyr-Medium;
+  font-size: 16px
 }
 
-.heading {
-  display: none;
+.option,.select {
+  font-size: 13px;
+  color: #2c353e;
+  font-weight: 700;
+  line-height: 2.308;
+  border: 2px solid #b9c9d4;
+  border-radius: 4px;
+  background-color: #fff;
+  width: 126px;
+  height: 31px;
+  padding: 0 12px
 }
 
-@media screen and (min-width: 768px) {
+
+@media (min-width: 768px) {
+  .chartWrap {
+      width:80%;
+      border-radius: 4px;
+      background-color: #fff;
+      box-shadow: 10px 17.321px 40px 0 rgba(1,1,0,.15)
+  }
+
+  .title {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #516d57;
+      border-top-right-radius: 4px;
+      border-top-left-radius: 4px;
+      height: 90px;
+      width: 100%;
+      font-size: 15px;
+      color: #fff;
+      font-weight: 700;
+      text-transform: uppercase;
+      line-height: 2
+  }
+
+  .selectors {
+      width: 47%;
+      margin: 0 auto 16px
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+      width:60%;
+      box-shadow: 10px 17px 40px rgba(1,1,0,.15)
+  }
+
+  .title {
+      height: 4rem;
+      display: flex;
+      justify-content: center;
+      align-items: center
+  }
+
   .wrap {
-    margin: 0 auto;
-    max-width: 400px;
+      display: flex;
+      min-height: 440px;
+      overflow-y: auto
   }
 
-  .graphHolder {
-    margin: 0 auto;
-    width: 600px;
-    border: 1px;
-    box-shadow: 10px 17px 40px rgba(1, 1, 0, 0.15);
+  .chartWrap {
+      box-shadow: none;
+      margin: 0
   }
 
-  .graphHolderHeading {
-    background-color: #516d57;
-    text-align: center;
-    border-radius: 5px;
+  .chartWrap,.tableContaiter {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 50%
   }
 
-  .heading {
-    display: block;
-    color: color-text-main-light;
-    padding: 40px 220px;
+  .tableContaiter {
+      align-items: center;
+      overflow-y: auto
   }
 
-  .graphBox {
-    min-width: 410px;
-    text-align: center;
+  .selectors {
+      min-width: 320px
   }
-}
-
-@media screen and (min-width: 1224px) {}
-
-/* GRAPHBOX */
-
-.graphBox {
-  width: 280px;
-  margin: 0 auto;
-}
-
-.graphBox svg {
-  padding: 24px 0;
 
 }

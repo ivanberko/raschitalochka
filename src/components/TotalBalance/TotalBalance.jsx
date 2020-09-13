@@ -7,11 +7,11 @@ import styles from "./TotalBalance.module.css";
 
 const TotalBalance = ({ totalBalance }) => {
   const isDesktop = useMediaQuery({
-    query: "(min-device-width: 1224px)",
+    query: "(min-device-width: 1024px)",
   });
 
   const isTablet = useMediaQuery({
-    query: "(min-device-width: 768px) and (max-device-width: 1223px)",
+    query: "(min-device-width: 768px) and (max-device-width: 1023px)",
   });
 
   const isMobile = useMediaQuery({
