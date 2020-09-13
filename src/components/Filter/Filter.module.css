@@ -113,7 +113,7 @@
 
   .tableContaiter {
       align-items: center;
-      overflow-y: auto
+      overflow: hidden;
   }
 
   .selectors {

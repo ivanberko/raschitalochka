@@ -17,56 +17,52 @@
 .row,
 .rowHeader,
 .totalRow {
-    display: -webkit-flex;
     display: flex;
-    -webkit-justify-content: space-between;
     justify-content: space-between;
-    -webkit-align-items: center;
     align-items: center;
-    padding: 0 1.3rem
+    padding: 0 20px;
 }
 
 .rowHeader {
     background-color: #f3f6f6;
-    height: 3.125rem;
-    font-size: .93rem;
+    height: 50px;
+    font-size: 15px;
     color: #282828;
     font-weight: 700;
-    line-height: 2
+    line-height: 2;
 }
 
 .row {
-    font-size: .81rem;
+    font-size: 14px;
     color: #282828;
     line-height: 1.385;
-    height: 2.56rem;
-    border-bottom: 2px solid #f3f6f6
+    height: 42px;
+    border-bottom: 2px solid #f3f6f6;
 }
 
 .categoryWrap {
-    display: -webkit-flex;
-    display: flex
+    display: flex;
 }
 
 .square {
     margin: 0;
     width: 15px;
-    height: 15px
+    height: 15px;
 }
 
 .cellCategory {
-    margin-left: 13px
+    margin-left: 13px;
 }
 
 .total {
-    padding-top: 1rem;
-    padding-bottom: 2.5rem
+    padding-top: 16px;
+    padding-bottom: 40px;
 }
 
 .totalRow {
-    font-size: .93rem;
+    font-size: 15px;
     color: #282828;
-    line-height: 2
+    line-height: 2;
 }
 
 .totalCosts,
@@ -86,11 +82,8 @@
 
 @media (min-width: 768px) {
     .table {
-        display: -webkit-flex;
         display: flex;
-        -webkit-flex-direction: column;
         flex-direction: column;
-        -webkit-flex-wrap: wrap;
         flex-wrap: wrap;
         background-color: #fff
     }
@@ -101,9 +94,7 @@
     }
 
     .totalRow {
-        display: -webkit-flex;
         display: flex;
-        -webkit-justify-content: flex-end;
         justify-content: flex-end
     }
 
@@ -123,14 +114,14 @@
 
 @media (min-width: 1024px) {
     .row {
-        font-size: .81rem;
+        font-size: 14px;
         color: #282828;
         line-height: 1.385;
-        height: 1.5rem;
+        height: 24px;
         border-bottom: 1px solid #f3f6f6
     }
 
     .total {
-        padding: .5rem 0 0
+        padding: 8px 0 0
     }
 }
