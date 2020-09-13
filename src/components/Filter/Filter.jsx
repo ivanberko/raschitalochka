@@ -54,11 +54,11 @@ const Filter = ({ financeData }) => {
 
   return (
     <div className={styles.container}>
-      {isDesktop && <p className={styles.title}>Cost Diagram</p>}
+      {isDesktop && <div className={styles.titleContainer}><p className={styles.title}>Cost Diagram</p></div>}
       {filteredData.length > 0 ? (
         <div className={styles.wrap}>
           <div className={styles.chartWrap}>
-            {isTablet && <p className={styles.title}>Cost Diagram</p>}
+            {isTablet && <div className={styles.titleContainer}><p className={styles.title}>Cost Diagram</p></div>}
             <Graph filteredData={allCategories} />
           </div>
           <div className={styles.tableContaiter}>
