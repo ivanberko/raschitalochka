@@ -4,19 +4,13 @@ import {
   graphBox,
 } from "./Graph.module.css";
 
-const data = [
-  { x: "Main Expenses", y: 58 },
-  { x: "Food", y: 32 },
-  { x: "Car", y: 15 },
-  { x: "Self Care", y: 25 },
-  { x: "Child Care", y: 16 },
-  { x: "House", y: 6 },
-  { x: "Eduction", y: 18 },
-  { x: "Entertainment", y: 24 },
-  { x: "Other", y: 22 },
-];
 
 const Graph = ({filteredData, totalCost, totalIncome}) => {
+
+  const data = filteredData.map(({category, categoryAmount}) => ({x: category, y: categoryAmount}));
+
+ const colorFromDate = filteredData.map(({color})=> (color));
+ 
   return (
     
       <div className={graphBox}>
@@ -31,17 +25,7 @@ const Graph = ({filteredData, totalCost, totalIncome}) => {
               labels: { fontSize: 38, fill: "white" },
               data: { stroke: "#fff", strokeWidth: 2 },
             }}
-            colorScale={[
-              "#ecb22a",
-              "#e28b21",
-              "#d25825",
-              "#68b6cc",
-              "#5693d6",
-              "#73a7e0",
-              "#9cc253",
-              "#73ad58",
-              "#4e7c3b",
-            ]}
+          colorScale = {colorFromDate}
           />
         </svg>
       </div>

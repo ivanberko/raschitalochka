@@ -18,6 +18,10 @@
   width: 47%;
 }
 
+.heading {
+  display: none;
+}
+
 @media screen and (min-width: 768px) {
   .wrap {
     margin: 0 auto;
@@ -32,13 +36,15 @@
   }
 
   .graphHolderHeading {
-    background-color: btn-main;
+    background-color: #516d57;
     text-align: center;
+    border-radius: 5px;
   }
 
   .heading {
+    display: block;
     color: color-text-main-light;
-    padding: 40px 260px;
+    padding: 40px 220px;
   }
 
   .graphBox {

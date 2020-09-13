@@ -43,6 +43,12 @@ const FormCostIncome = ({
 
     const time = new Date(date).getTime();
     const balanceAfter = actionType === "COST" ? balance - amount : balance + Number.parseInt(amount);
+
+    if (!category) {
+      alert("Some require fields is empty!")
+      return;
+    }
+
     const finance = {
       date: time,
       type: actionType === "COST" ? "-" : "+",
@@ -52,6 +58,7 @@ const FormCostIncome = ({
       comments: comments,
       typeBalanceAfter: balanceAfter > 0 ? "+" : "-",
     };
+    console.log(finance);
 
     postIncomeCost(user.id, token, finance);
     getFinance();

@@ -8,5 +8,14 @@ export const toISODate = (milliseconds) => {
   return [d, m, y].join(".");
 };
 
-export const formatNumbers = (num) =>
-  String(num).replace(/(\d)(?=(\d{3})+([^\d]|$))/g, "$1 ");
+export const formatNumbers = (num) => {
+  const numToFixed = num.toFixed(2);
+  return String(numToFixed).replace(/(\d)(?=(\d{3})+([^\d]|$))/g, "$1 ");
+};
+
+export const scrollToUp = () =>
+  window.scrollTo({
+    top: 0,
+    left: 0,
+    behavior: "smooth",
+  });
