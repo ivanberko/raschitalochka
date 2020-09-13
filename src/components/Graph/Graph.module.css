@@ -1,7 +1,3 @@
-@value colors "../../styles/variables.css";
-@value color-text-income, color-text-main-light,btn-main, btn-active from colors;
-/* GRAPHBOX */
-
 .graphBox {
   width: 280px;
   margin: 0 auto;
@@ -14,25 +10,15 @@
 
 /* MEDIA */
 @media screen and (min-width: 768px) {
-  .graphHolder {
-    margin: 0 auto;
-    width: 600px;
-    border: 1px;
-    box-shadow: 10px 17px 40px rgba(1, 1, 0, 0.15);
-  }
-
-  .graphHolderHeading {
-    background-color: #516d57;
-    text-align: center;
-    
-  }
-
-  .heading {
-    color: color-text-main-light;
-    padding: 40px 220px;
-  }
-
   .graphBox {
+    width: 320px;
+    text-align: center;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .graphBox {
+    width: 100%;
     text-align: center;
   }
 }
