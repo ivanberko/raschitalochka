@@ -29,7 +29,7 @@
   }
 }
 
-@media (min-width: 1224px) {
+@media (min-width: 1024px) {
   .currencyStyle {
     width: 360px;
     height: 490px;

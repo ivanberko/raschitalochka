@@ -5,7 +5,7 @@ import {
 } from "./Graph.module.css";
 
 
-const Graph = ({filteredData, totalCost, totalIncome}) => {
+const Graph = ({filteredData }) => {
 
   const data = filteredData.map(({category, categoryAmount}) => ({x: category, y: categoryAmount}));
 
