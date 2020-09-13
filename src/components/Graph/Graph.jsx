@@ -22,7 +22,7 @@ const Graph = ({filteredData }) => {
             data={data}
             labelRadius={280}
             style={{
-              labels: { fontSize: 38, fill: "white" },
+              labels: { fontSize: 40, fill: "white" },
               data: { stroke: "#fff", strokeWidth: 2 },
             }}
           colorScale = {colorFromDate}
