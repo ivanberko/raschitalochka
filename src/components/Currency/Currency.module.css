@@ -1,11 +1,12 @@
 @value variables  "../../styles/variables.css";
 @value table-row-bg-dark, color-text-main-light from variables;
 
-.currency {
+.currencyStyle {
   width: 320px;
   font-family: HelveticaNeueCyr;
   background-color: color-text-main-light;
   font-size: 13px;
+  margin: 20px auto 0;
 }
 .currencyHead {
   padding: 25px 37px;
@@ -18,7 +19,8 @@
 }
 
 @media (min-width: 768px) {
-  .currency {
+  .currencyStyle {
+    margin: 28px auto 0 32px;
     width: 352px;
     box-shadow: grey;
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
@@ -29,8 +31,8 @@
   }
 }
 
-@media (min-width: 1700px) {
-  .currency {
+@media (min-width: 1024px) {
+  .currencyStyle {
     width: 360px;
     height: 490px;
     background-image: url("../../images/login/bg.png");
@@ -38,6 +40,7 @@
     background-size: 150%;
     background-position: center;
     background-position-y: 300px;
+    margin: 40px 0 0 0;
   }
   .currencyHead {
     padding: 24px 30px;

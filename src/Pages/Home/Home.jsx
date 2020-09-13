@@ -1,54 +1,39 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import { useMediaQuery } from "react-responsive";
 
-// Components
-import MainTableMobile from "../../components/MainTable/Mobile/MainTableMobile";
-import MainTableDesckop from "../../components/MainTable/TabletOrDesktop/MainTableDesckop";
+import Header from "../../components/Header/Header";
+import Sidebar from "../../components/Sidebar/Sidebar";
+import MainInfo from "../../components/MainInfo/MainInfo";
+import Currency from "../../components/Currency/Currency";
+import { mainWrapper } from "./Home.module.css";
+import withAuth from "../../hoc/withAuth";
+import { load } from "../../services/localStorage";
 
-import { button } from "./Button.module.css";
-
-import ModalWindow from "../../components/ModalWindow";
-
-const Home = () => {
-  const isMobileDevice = useMediaQuery({
-    query: "(max-device-width: 767px)",
+const Home = (props) => {
+  const isTablet = useMediaQuery({
+    query: "(min-device-width: 768px) and (max-device-width: 1023px)",
   });
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [actionType, setActionType] = useState("COST");
-  const changeIsModalOpen = (e) => {
-    if (!isModalOpen) {
-    setActionType(e.target.name);      
+  useEffect(() => {
+    const data = load("session");
+    if (data) {
+      props.userSession(data);
     }
-    setIsModalOpen(!isModalOpen);
-  };
+    props.getFinance();
+  }, []);
+
+  const isDiagramPage = props.location.pathname === "/home/diagram";
 
   return (
     <>
-      {isMobileDevice ? (
-        <MainTableMobile>
-        {/* <NavLink path="/income" /> <CostIncome actionType="INCOME" />  к примеру*/}
-        {/* <NavLink path="/cost" /> <CostIncome actionType="COST" /> */}
-        </MainTableMobile>
-      ) : (
-        <MainTableDesckop>
-          <button className={button} onClick={changeIsModalOpen} name="INCOME">
-            Add Income
-          </button>
-          <button className={button} onClick={changeIsModalOpen} name="COST">
-            Add Cost
-          </button>
-        </MainTableDesckop>
-      )}
-      {isModalOpen && (
-        <ModalWindow
-          changeIsModalOpen={changeIsModalOpen}
-          actionType={actionType}
-        />
-      )}
-      
+      <Header {...props} />
+      <div className={mainWrapper}>
+        <Sidebar />
+        <MainInfo />
+        {isTablet && !isDiagramPage ? <Currency /> : null}
+      </div>
     </>
   );
 };
 
-export default Home;
+export default withAuth(Home);
