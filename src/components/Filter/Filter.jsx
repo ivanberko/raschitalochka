@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from "react";
+import { useMediaQuery } from "react-responsive";
 
 import * as functions from "../../helpers/functions";
-import { useMedia } from "../../helpers/mediaQuery";
+import { desktopMediaQuery, tabletMediaQuery } from "../../helpers/mediaQuery";
 
 import Graph from "../Graph/Graph";
 import FilterTable from "../FilterTable/FilterTable";
 import styles from "./Filter.module.css";
 
 const Filter = ({ financeData }) => {
-  const [isDesktop, isMobile, isTablet, isTabletOrDesktop] = useMedia();
+  const isDesktop = useMediaQuery(desktopMediaQuery);
+  const isTablet = useMediaQuery(tabletMediaQuery);
 
   const [month, setMonth] = useState(functions.months[new Date().getMonth()]);
   const [year, setYear] = useState(new Date().getFullYear());

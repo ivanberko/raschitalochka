@@ -1,12 +1,15 @@
 import React from "react";
+import { useMediaQuery } from "react-responsive";
 
-import { useMedia } from "../../helpers/mediaQuery";
+import { desktopMediaQuery,tabletMediaQuery,mobileMediaQuery } from "../../helpers/mediaQuery";
 import { formatNumbers } from "../../helpers/format";
 
 import styles from "./TotalBalance.module.css";
 
 const TotalBalance = ({ totalBalance }) => {
-  const [isDesktop, isMobile, isTablet, isTabletOrDesktop]= useMedia();
+  const isDesktop = useMediaQuery(desktopMediaQuery);
+  const isTablet = useMediaQuery(tabletMediaQuery);
+  const isMobile = useMediaQuery(mobileMediaQuery);
 
   return (
     <div className={styles.wrapBlance}>

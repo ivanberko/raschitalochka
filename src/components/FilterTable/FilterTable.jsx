@@ -1,14 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { useMedia } from "../../helpers/mediaQuery";
+import { useMediaQuery } from "react-responsive";
+
+import { desktopMediaQuery, mobileMediaQuery } from "../../helpers/mediaQuery";
 
 import { formatNumbers } from "../../helpers/format";
 
 import style from "./FilterTable.module.css";
 
 const FilterTable = ({ filteredData, totalCost, totalIncome }) => {
-  const [isDesktop, isMobile, isTablet, isTabletOrDesktop]= useMedia();
-
+  const isDesktop = useMediaQuery(desktopMediaQuery);
+  const isMobile = useMediaQuery(mobileMediaQuery);
 
   return (
     <div className={style.tableWrap}>

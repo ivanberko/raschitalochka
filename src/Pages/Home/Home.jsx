@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
+import { useMediaQuery } from "react-responsive";
 
-import { useMedia } from "../../helpers/mediaQuery";
+import { tabletMediaQuery } from "../../helpers/mediaQuery";
 
 import Header from "../../components/Header/Header";
 import Sidebar from "../../components/Sidebar/Sidebar";
@@ -11,7 +12,7 @@ import withAuth from "../../hoc/withAuth";
 import { load } from "../../services/localStorage";
 
 const Home = (props) => {
- const [isDesktop, isMobile, isTablet, isTabletOrDesktop]= useMedia();
+  const isTablet = useMediaQuery(tabletMediaQuery);
 
   useEffect(() => {
     const data = load("session");

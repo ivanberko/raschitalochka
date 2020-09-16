@@ -1,9 +1,10 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { useMediaQuery } from "react-responsive";
 
 import withAuth from "../../hoc/withAuth";
 
-import { useMedia } from "../../helpers/mediaQuery";
+import { mobileMediaQuery } from "../../helpers/mediaQuery";
 
 import { load } from "../../services/localStorage";
 import logoIcon from "../../images/logo.png";
@@ -11,8 +12,7 @@ import exit from "../../images/exit.png";
 import style from "./Header.module.css";
 
 const Header = ({ logout, history, user }) => {
-  const [isDesktop, isMobile, isTablet, isTabletOrDesktop]= useMedia();
-
+  const isMobile = useMediaQuery(mobileMediaQuery);
 
   const handleClickLogout = () => {
     logout(load("token"));

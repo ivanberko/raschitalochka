@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import { useMediaQuery } from "react-responsive";
 
-import { useMedia } from "../../helpers/mediaQuery";
+import { mobileMediaQuery } from "../../helpers/mediaQuery";
 
 import { scrollToUp } from "../../helpers/format";
 
@@ -14,8 +15,7 @@ import ModalWindow from "../../components/ModalWindow/ModalWindow";
 import CostIncome from "./../../Pages/CostIncome/CostIncome";
 
 const Main = () => {
-  const [isDesktop, isMobile, isTablet, isTabletOrDesktop]= useMedia();
-
+  const isMobile = useMediaQuery(mobileMediaQuery);
 
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
