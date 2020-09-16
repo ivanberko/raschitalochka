@@ -1,11 +1,12 @@
 import React from "react";
-import { useMediaQuery } from "react-responsive";
+import { useMedia } from "../../helpers/mediaQuery";
 
 import Navigation from "../Navigation/Navigation";
 import Currency from "../Currency/Currency";
 
 const Sidebar = () => {
-  const isDesktop = useMediaQuery({ minDeviceWidth: 1024 });
+  const [isDesktop, isMobile, isTablet, isTabletOrDesktop] = useMedia();
+
   return (
     <div>
       <Navigation />

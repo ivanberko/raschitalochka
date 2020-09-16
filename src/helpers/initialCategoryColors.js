@@ -15,3 +15,17 @@ export const initCategoryColors = [
 export const getCategoryColor = (category) => {
   return initCategoryColors.find((el) => el.category === category);
 };
+
+export const categoriesCost = [
+  "Main Expenses",
+  "Food",
+  "Car",
+  "Entertaiment",
+  "Self Care",
+  "Child Care",
+  "Household Products",
+  "Education",
+  "Other Expenses",
+];
+
+export const categoriesIncom = ["Regular Income", "Irregular Income"];

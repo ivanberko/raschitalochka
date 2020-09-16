@@ -1,8 +1,9 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { useMediaQuery } from "react-responsive";
 
-import TotalBalance from "../TotalBalance/TotaleBalanceContainer";
+import { useMedia } from "../../helpers/mediaQuery";
+
+import TotalBalance from "../../containers/TotaleBalanceContainer";
 
 // material-icon
 import HomeIcon from "@material-ui/icons/Home";
@@ -13,12 +14,8 @@ import AttachMoneyIcon from "@material-ui/icons/AttachMoney";
 import styles from "./Navigation.module.css";
 
 const Navigation = () => {
-  const isTabletOrDesktop = useMediaQuery({
-    query: "(min-device-width: 768px)",
-  });
-  const isMobile = useMediaQuery({
-    query: "(max-device-width: 767px)",
-  });
+  const [isDesktop, isMobile, isTablet, isTabletOrDesktop]= useMedia();
+
 
   return (
     <div>

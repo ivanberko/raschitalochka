@@ -15,6 +15,19 @@ export const register = async (data) => {
   return response;
 };
 
+export const loginFetch = async (data) => {
+  setBaseURL();
+  const response = await axios.post("/api/login", data);
+  return response;
+};
+
+export const logoutFetch = async (token) => {
+  setBaseURL();
+  setAuthHeader(token);
+  const response = await axios.get("/api/logout");
+  return response;
+}
+
 export const getFinanceTableById = async (userId, token) => {
   setBaseURL();
   setAuthHeader(token);

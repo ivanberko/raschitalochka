@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
-import * as financeSelectors from "../../redux/reducers/finance/financeSelectors";
-import Filter from "./Filter";
+import * as financeSelectors from "../redux/finance/financeSelectors";
+import Filter from "../components/Filter/Filter";
 
 const mapStateToProps = (state) => ({
   financeData: financeSelectors.getFinanceData(state),

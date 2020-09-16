@@ -1,4 +1,4 @@
-import { getCategoryColor } from '../../helpers/initialCategoryColors';
+import { getCategoryColor } from './initialCategoryColors';
 
 export const months = [
   "January",

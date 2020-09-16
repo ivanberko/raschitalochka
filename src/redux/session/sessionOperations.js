@@ -1,6 +1,4 @@
-import axios from "axios";
-
-import { save } from "../../../services/localStorage";
+import { save } from "../../services/localStorage";
 
 import { getToken } from "./sessionSelectors";
 import {
@@ -10,15 +8,16 @@ import {
   logoutRequest,
   logoutSuccess,
   logoutError,
-  userAuthorized,
 } from "./sessionActions";
-import { setAuthHeader, setBaseURL } from "../../../services/api";
+import { loginFetch, logoutFetch, setAuthHeader } from "../../services/api";
+
+export const userSession = (data) => (dispatch) => {
+  dispatch(loginSuccess(data))
+}
 
 export const login = (data, history) => (dispatch) => {
   dispatch(loginRequest());
-  setBaseURL();
-  axios
-    .post("/api/login", data)
+  loginFetch(data)
     .then(({ data }) => {
       save("session", {
         token: data.token,
@@ -30,25 +29,17 @@ export const login = (data, history) => (dispatch) => {
     })
     .catch((error) => {
       dispatch(loginError(error));
-      alert("User is not defined"); //мб пинотифи какой нибудь?
+      alert("User is not defined");
     });
 };
 
 export const logout = (storeToken = null) => (dispatch, getState) => {
   dispatch(logoutRequest());
   const token = storeToken ? storeToken : getToken(getState());
-  setBaseURL();
-  setAuthHeader(token);
-
-  axios
-    .get("/api/logout")
+  logoutFetch(token)
     .then(() => {
       save("session", null);
       dispatch(logoutSuccess());
     })
     .catch((error) => dispatch(logoutError(error)));
-};
-
-export const userSession = (data) => (dispatch) => {
-  dispatch(userAuthorized(data));
 };

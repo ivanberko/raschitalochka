@@ -1,20 +1,10 @@
 import React, { useState } from "react";
 import style from "./FormCostIncome.module.css";
 import { postIncomeCost } from "../../services/api";
-
-const categoriesCost = [
-  "Main Expenses",
-  "Food",
-  "Car",
-  "Entertaiment",
-  "Self Care",
-  "Child Care",
-  "Household Products",
-  "Education",
-  "Other Expenses",
-];
-
-const categoriesIncom = ["Regular Income", "Irregular Income"];
+import {
+  categoriesCost,
+  categoriesIncom,
+} from "../../helpers/initialCategoryColors";
 
 const FormCostIncome = ({
   actionType,
@@ -22,7 +12,7 @@ const FormCostIncome = ({
   balance,
   token,
   user,
-  getFinance
+  getFinance,
 }) => {
   const categories =
     actionType === "COST" ? [...categoriesCost] : [...categoriesIncom];
@@ -42,10 +32,13 @@ const FormCostIncome = ({
     e.preventDefault();
 
     const time = new Date(date).getTime();
-    const balanceAfter = actionType === "COST" ? balance - amount : balance + Number.parseInt(amount);
+    const balanceAfter =
+      actionType === "COST"
+        ? balance - amount
+        : balance + Number.parseInt(amount);
 
     if (!category) {
-      alert("Some require fields is empty!")
+      alert("Some require fields is empty!");
       return;
     }
 
@@ -58,7 +51,6 @@ const FormCostIncome = ({
       comments: comments,
       typeBalanceAfter: balanceAfter > 0 ? "+" : "-",
     };
-    console.log(finance);
 
     postIncomeCost(user.id, token, finance);
     getFinance();

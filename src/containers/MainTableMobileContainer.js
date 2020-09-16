@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 
-import { getFinanceData } from "../../../redux/reducers/finance/financeSelectors";
-import MainTableMobile from "./MainTableMobile";
+import { getFinanceData } from "../redux/finance/financeSelectors";
+import MainTableMobile from "../components/MainTable/Mobile/MainTableMobile";
 
 const mapStateToProps = (state) => ({
   financeData: getFinanceData(state),

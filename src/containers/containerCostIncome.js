@@ -1,8 +1,8 @@
 import { connect } from "react-redux";
-import { fetchFinance } from "../../redux/reducers/finance/financeOperation";
-import * as financeSelectors from "../../redux/reducers/finance/financeSelectors";
-import * as sessionSelectors from '../../redux/reducers/session/sessionSelectors';
-import FormCostIncome from "./index";
+import { fetchFinance } from "../redux/finance/financeOperation";
+import * as financeSelectors from "../redux/finance/financeSelectors";
+import * as sessionSelectors from '../redux/session/sessionSelectors';
+import FormCostIncome from "../components/FormCostIncome/FormCostIncome";
 
 const mapStateToProps = (state) => ({
   balance: financeSelectors.getTotalBalance(state),

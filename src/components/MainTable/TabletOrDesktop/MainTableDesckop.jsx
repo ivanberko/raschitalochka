@@ -1,21 +1,14 @@
 import React from "react";
 
 import { toISODate, formatNumbers } from "../../../helpers/format";
-import {
-  wrap,
-  table,
-  tableRow,
-  tableHead,
-  boxButtons,
-  notifyMessage,
-} from "./MainTableDesckop.module.css";
+import style from "./MainTableDesktop.module.css";
 
-const MainTableDesckop = ({ financeData, children }) => {
+const MainTableDesktop = ({ financeData, children }) => {
   return (
-    <section className={wrap}>
-      <div className={boxButtons}>{children}</div>
-      <table className={table}>
-        <thead className={tableHead}>
+    <section className={style.wrap}>
+      <div className={style.boxButtons}>{children}</div>
+      <table className={style.table}>
+        <thead className={style.tableHead}>
           <tr>
             <th>Date</th>
             <th>Type</th>
@@ -28,7 +21,7 @@ const MainTableDesckop = ({ financeData, children }) => {
         <tbody>
           {financeData.map(
             ({ _id, date, type, category, comments, amount, balanceAfter }) => (
-              <tr key={_id} className={tableRow}>
+              <tr key={_id} className={style.tableRow}>
                 <td>{toISODate(date)}</td>
                 <td>{type}</td>
                 <td>{category}</td>
@@ -43,10 +36,10 @@ const MainTableDesckop = ({ financeData, children }) => {
         </tbody>
       </table>
       {!financeData.length && (
-        <h2 className={notifyMessage}>You have no transactions</h2>
+        <h2 className={style.notifyMessage}>You have no transactions</h2>
       )}
     </section>
   );
 };
 
-export default MainTableDesckop;
+export default MainTableDesktop;
