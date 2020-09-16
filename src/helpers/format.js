@@ -22,7 +22,7 @@ export const scrollToUp = () =>
     behavior: "smooth",
   });
 
-export const loginValidationSchema = Yup.object({
+export const registerValidationSchema = Yup.object({
   pass: Yup.string()
     .min(8, "Must be from 8 to 16 characters")
     .max(16, "Must be from 8 to 16 characters")
@@ -38,7 +38,7 @@ export const loginValidationSchema = Yup.object({
     .required("Required"),
 });
 
-export const logoutValidationSchema = Yup.object({
+export const loginValidationSchema = Yup.object({
   confirmPass: Yup.string()
     .min(8, "Must be from 8 to 16 characters")
     .max(16, "Must be from 8 to 16 characters")

@@ -19,7 +19,6 @@ const Login = ( { login, history } ) => {
     },
     validationSchema: loginValidationSchema,
     onSubmit: ( values ) => {
-      console.log(login);
       login( { email: values.email, password: values.confirmPass }, history );      
     },
   } );

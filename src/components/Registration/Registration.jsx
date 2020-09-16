@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { useFormik } from "formik";
 
-import { logoutValidationSchema } from '../../helpers/format';
+import { registerValidationSchema } from '../../helpers/format';
 
 import logo from "../../images/registration/logo.jpg";
 import desctop_logo from '../../images/registration/desctop_logo.png';
@@ -21,7 +21,7 @@ const Registration = ( { login, history } ) => {
       email: "",
       userName: "",
     },
-    validationSchema: logoutValidationSchema,
+    validationSchema: registerValidationSchema,
     onSubmit: ( values ) => {
       if(
         formik.values.pass === formik.values.confirmPass &&
