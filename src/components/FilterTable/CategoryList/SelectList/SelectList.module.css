@@ -1,0 +1,55 @@
+select {
+    width: 130px;
+    height: 35px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.39px;
+    border: 2px solid #b9c9d4;
+    background-color: #ffffff;
+    border-radius: 5px;
+    margin-bottom: 17px;
+}
+
+label1,
+label2 {
+    padding-left: 17px;
+    margin-right: 10px;
+}
+
+form {
+    width: 320px;
+}
+
+@media screen and (min-width: 768px) {
+    select {
+       width: 174px;
+    }
+
+    form {
+        width: 702px;
+    }
+
+    label1 {
+        padding-left: 171px;
+    }
+
+    form label2 {
+        padding-left: 8px;
+    }
+}
+
+@media screen and (min-width: 1224px) {
+    form {
+        width: 362px;
+    }
+
+    form label2 {
+        padding-left: 7px;
+        margin-right: 0;
+    }
+
+    label1 {
+        padding-left: 5px;
+        margin-right: 0;
+    }
+}
