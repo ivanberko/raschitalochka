@@ -1,31 +1,33 @@
 import React, { useState } from "react";
 import { useMediaQuery } from "react-responsive";
 
+import { mobileMediaQuery } from "../../helpers/mediaQuery";
+
 import { scrollToUp } from "../../helpers/format";
 
 // Components
-import MainTableMobile from "../../components/MainTable/Mobile/MainTableMobileContainer";
-import MainTableDesckop from "../../components/MainTable/TabletOrDesktop/MainTableDesckopContainer";
+import MainTableMobile from "../../containers/MainTableMobileContainer";
+import MainTableDesktop from "../../containers/MainTableDesktopContainer";
 
 import { button } from "./Button.module.css";
 
-import ModalWindow from "../../components/ModalWindow";
+import ModalWindow from "../../components/ModalWindow/ModalWindow";
 import CostIncome from "./../../Pages/CostIncome/CostIncome";
 
 const Main = () => {
-  const isMobileDevice = useMediaQuery({
-    query: "(max-device-width: 767px)",
-  });
+  const isMobile = useMediaQuery(mobileMediaQuery);
 
+  const [isFormOpen, setIsFormOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [actionType, setActionType] = useState("COST");
+
   const changeIsModalOpen = (e) => {
     if (!isModalOpen) {
       setActionType(e.target.name);
     }
     setIsModalOpen(!isModalOpen);
   };
-  const [isFormOpen, setIsFormOpen] = useState(false);
+
   const changeIsFormOpen = (e) => {
     scrollToUp();
     if (!isFormOpen) {
@@ -36,7 +38,7 @@ const Main = () => {
 
   return (
     <>
-      {isMobileDevice ? (
+      {isMobile ? (
         <MainTableMobile>
           <button className={button} onClick={changeIsFormOpen} name="INCOME">
             Add Income
@@ -46,14 +48,14 @@ const Main = () => {
           </button>
         </MainTableMobile>
       ) : (
-        <MainTableDesckop>
+        <MainTableDesktop>
           <button className={button} onClick={changeIsModalOpen} name="INCOME">
             Add Income
           </button>
           <button className={button} onClick={changeIsModalOpen} name="COST">
             Add Cost
           </button>
-        </MainTableDesckop>
+        </MainTableDesktop>
       )}
       {isFormOpen && (
         <CostIncome

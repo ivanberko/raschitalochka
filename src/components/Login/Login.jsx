@@ -1,11 +1,15 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import styles from "../Login/login.module.css";
 import { useFormik } from "formik";
-import * as Yup from "yup";
+
+import { loginValidationSchema } from '../../helpers/format';
+
 import logo from "../../images/registration/logo.jpg";
 import withAuth from "../../hoc/withAuth";
 import phoneImg from '../../images/login/phone.png';
+
+import styles from "../Login/login.module.css";
+
 
 const Login = ( { login, history } ) => {
   const formik = useFormik( {
@@ -13,16 +17,9 @@ const Login = ( { login, history } ) => {
       confirmPass: "",
       email: "",
     },
-    validationSchema: Yup.object( {
-      confirmPass: Yup.string()
-        .min( 8, "Must be from 8 to 16 characters" )
-        .max( 16, "Must be from 8 to 16 characters" )
-        .required( "Required" ),
-      email: Yup.string().email( "Invalid email address" ).required( "Required" ),
-    } ),
+    validationSchema: loginValidationSchema,
     onSubmit: ( values ) => {
-      login( { email: values.email, password: values.confirmPass }, history );
-      // history.push("/home");
+      login( { email: values.email, password: values.confirmPass }, history );      
     },
   } );
 

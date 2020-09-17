@@ -7,7 +7,7 @@ const totalBalance = (state = 0, { type, payload }) => {
       return payload.totalBalance;
 
     case actionTypes.FINANCE_ERROR:
-      return state;
+      return payload.error;
 
     default:
       return state;
@@ -20,7 +20,7 @@ const typeTotalBalance = (state = "", { type, payload }) => {
       return payload.typeTotalBalance;
 
     case actionTypes.FINANCE_ERROR:
-      return state;
+      return payload.error;
 
     default:
       return state;
@@ -33,7 +33,7 @@ const financeData = (state = [], { type, payload }) => {
       return [...payload.data];
 
     case actionTypes.FINANCE_ERROR:
-      return state;
+      return payload.error;
 
     default:
       return state;

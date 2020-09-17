@@ -1,8 +1,6 @@
-// import axios from "axios";
-
 import { financeRequest, financeSuccess, financeError } from "./financeAction";
 import { getToken, getUser } from "../session/sessionSelectors";
-import { getFinanceTableById } from "../../../services/api";
+import { getFinanceTableById } from "../../services/api";
 
 export const fetchFinance = () => (dispatch, getState) => {
   dispatch(financeRequest());

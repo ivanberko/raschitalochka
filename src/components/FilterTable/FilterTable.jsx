@@ -2,17 +2,16 @@ import React from "react";
 import PropTypes from "prop-types";
 import { useMediaQuery } from "react-responsive";
 
+import { desktopMediaQuery, mobileMediaQuery } from "../../helpers/mediaQuery";
+
 import { formatNumbers } from "../../helpers/format";
 
 import style from "./FilterTable.module.css";
 
 const FilterTable = ({ filteredData, totalCost, totalIncome }) => {
-  const isDesktop = useMediaQuery({
-    query: "(min-device-width: 1023px)",
-  });
-  const isMobile = useMediaQuery({
-    query: "(max-device-width: 767px)",
-  });
+  const isDesktop = useMediaQuery(desktopMediaQuery);
+  const isMobile = useMediaQuery(mobileMediaQuery);
+
   return (
     <div className={style.tableWrap}>
       <ul className={style.table}>
@@ -42,7 +41,9 @@ const FilterTable = ({ filteredData, totalCost, totalIncome }) => {
         </li>
         <li className={style.totalRow}>
           <p className={style.totalIncome}>Total Income:</p>
-          <p className={style.totalIncomeAmaunt}>{formatNumbers(totalIncome)}</p>
+          <p className={style.totalIncomeAmaunt}>
+            {formatNumbers(totalIncome)}
+          </p>
         </li>
       </ul>
     </div>

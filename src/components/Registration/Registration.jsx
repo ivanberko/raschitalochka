@@ -1,14 +1,17 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import styles from "../Registration/registration.module.css";
 import { useFormik } from "formik";
-import * as Yup from "yup";
+
+import { registerValidationSchema } from '../../helpers/format';
+
 import logo from "../../images/registration/logo.jpg";
 import desctop_logo from '../../images/registration/desctop_logo.png';
 import phoneImg from '../../images/registration/phone.png';
 import withAuth from "../../hoc/withAuth";
-
 import { register } from "../../services/api";
+
+import styles from "../Registration/registration.module.css";
+
 
 const Registration = ( { login, history } ) => {
   const formik = useFormik( {
@@ -18,20 +21,7 @@ const Registration = ( { login, history } ) => {
       email: "",
       userName: "",
     },
-    validationSchema: Yup.object( {
-      pass: Yup.string()
-        .min( 8, "Must be from 8 to 16 characters" )
-        .required( "Required" ),
-      confirmPass: Yup.string()
-        .min( 8, "Must be from 8 to 16 characters" )
-        .max( 16, "Must be from 8 to 16 characters" )
-        .required( "Required" ),
-      email: Yup.string().email( "Invalid email address" ).required( "Required" ),
-      userName: Yup.string()
-        .min( 4, "Must be from 6 to 12 characters" )
-        .max( 12, "Must be from 6 to 12 characters" )
-        .required( "Required" ),
-    } ),
+    validationSchema: registerValidationSchema,
     onSubmit: ( values ) => {
       if(
         formik.values.pass === formik.values.confirmPass &&

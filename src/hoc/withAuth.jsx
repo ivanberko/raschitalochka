@@ -1,11 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import * as operations from "../redux/reducers/session/sessionOperations";
+import * as operations from "../redux/session/sessionOperations";
+
 import {
   getIsAuthorized,
   getUser,
-} from "../redux/reducers/session/sessionSelectors";
+} from "../redux/session/sessionSelectors";
 
 const withAuth = (Component) => {
   const WithAuth = (props) => <Component {...props} />;
@@ -24,7 +25,7 @@ const withAuth = (Component) => {
   return connect(
     mapStateToProps,
     mapDispatchToProps
-  )((props) => <WithAuth {...props} />);
+  )((props) => <WithAuth {...props}/>);
 };
 
 export default withAuth;
