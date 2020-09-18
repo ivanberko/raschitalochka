@@ -23,8 +23,6 @@ const Main = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [actionType, setActionType] = useState("COST");
 
-  const container = document.getElementById("portal");
-
   const changeIsModalOpen = (e) => {
     if (!isModalOpen) {
       setActionType(e.target.name);
@@ -41,7 +39,7 @@ const Main = () => {
   };
 
   return (
-    <>
+    <>      
       {isMobile ? (
         <MainTableMobile>
           <button className={button} onClick={changeIsFormOpen} name="INCOME">
