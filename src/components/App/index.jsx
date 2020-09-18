@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 
-import Registartion from "../Registration/Registration";
-import Login from "../Login/Login";
+import Registartion from "../../Pages/Registration/Registration";
+import Login from "../../Pages/Login/Login";
 import Home from "../../containers/HomeContainer";
 import { load } from "../../services/localStorage";
 
