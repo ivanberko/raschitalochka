@@ -10,7 +10,7 @@ import phoneImg from '../../images/registration/phone.png';
 import withAuth from "../../hoc/withAuth";
 import { register } from "../../services/api";
 
-import styles from "../Registration/registration.module.css";
+import styles from "./registration.module.css";
 
 
 const Registration = ( { login, history } ) => {
@@ -37,7 +37,7 @@ const Registration = ( { login, history } ) => {
           })
           .catch((err) => {
             console.log(err);
-            alert("User is alrydy exist"); //мб пинотифи какой нибудь?
+            alert("User is alrydy exist"); 
           });
       } else alert("Please confirm your password");
     },
