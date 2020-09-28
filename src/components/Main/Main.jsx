@@ -12,7 +12,9 @@ import MainTableDesktop from "../../containers/MainTableDesktopContainer";
 import { button } from "./Button.module.css";
 
 import ModalWindow from "../../components/ModalWindow/ModalWindow";
-import CostIncome from "./../../Pages/CostIncome/CostIncome";
+import CostIncome from "../CostIncome/CostIncome";
+
+import ModalOnPortals from "./ModalOnPortals";
 
 const Main = () => {
   const isMobile = useMediaQuery(mobileMediaQuery);
@@ -37,7 +39,7 @@ const Main = () => {
   };
 
   return (
-    <>
+    <>      
       {isMobile ? (
         <MainTableMobile>
           <button className={button} onClick={changeIsFormOpen} name="INCOME">
@@ -57,18 +59,20 @@ const Main = () => {
           </button>
         </MainTableDesktop>
       )}
-      {isFormOpen && (
-        <CostIncome
-          actionType={actionType}
-          changeIsFormOpen={changeIsFormOpen}
-        />
-      )}
-      {isModalOpen && (
-        <ModalWindow
-          changeIsModalOpen={changeIsModalOpen}
-          actionType={actionType}
-        />
-      )}
+      <ModalOnPortals>
+        {isFormOpen && (
+          <CostIncome
+            actionType={actionType}
+            changeIsFormOpen={changeIsFormOpen}
+          />
+        )}
+        {isModalOpen && (
+          <ModalWindow
+            changeIsModalOpen={changeIsModalOpen}
+            actionType={actionType}
+          />
+        )}
+      </ModalOnPortals>
     </>
   );
 };
